@@ -1,4 +1,10 @@
 Taskium::Application.routes.draw do
+  resources :posts
+
+  resources :tags
+
+  resources :categories
+
   resources :users
 
   # The priority is based upon order of creation:
