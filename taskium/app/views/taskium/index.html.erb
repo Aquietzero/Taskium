@@ -1,16 +1,17 @@
 <p>Welcome to Taskium</p>
 
-<div class="post">
+<div class="posts">
   <% @posts.each do |post| %>
-    <div class="post_title">
-      <%= post.title %>
-    </div>
-    <div class="post_updated">
-      <%= post.updated_at %>
-    </div>
-    <div class="post_content">
-      <%= post.content %>
+    <div class="post">
+      <div class="post-title">
+        <%= post.title %>
+      </div>
+      <div class="post-updated">
+        <%= post.updated_at %>
+      </div>
+      <div class="post-content">
+        <%= post.content %>
+      </div>
     </div>
   <% end %>
 </div>
-
