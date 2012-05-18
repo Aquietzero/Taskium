@@ -42,6 +42,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
 
+    # Delete all the tags first to avoid repeated tags
+    @post.tags.delete_all
+    tag_ids = params[:tag_ids]
+    tag_ids.each do |tag_id|
+      @post.tags << Tag.find(tag_id)
+    end
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -57,6 +64,13 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+
+    # Delete all the tags first to avoid repeated tags
+    @post.tags.delete_all
+    tag_ids = params[:tag_ids]
+    tag_ids.each do |tag_id|
+      @post.tags << Tag.find(tag_id)
+    end
 
     respond_to do |format|
       if @post.update_attributes(params[:post])

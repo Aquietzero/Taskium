@@ -1,6 +1,8 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
+  has_many :comments
+
   validates :name, :presence => true, :uniqueness => true
   validates :student_id, :presence => true, :uniqueness => true
 

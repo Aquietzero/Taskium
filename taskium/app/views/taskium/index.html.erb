@@ -1,4 +1,8 @@
-<p>Welcome to Taskium</p>
+<div id="notice">
+  <% if notice %>
+    <p><%= notice %></p>
+  <% end %>
+</div>
 
 <div class="posts">
   <% @posts.each do |post| %>
@@ -11,6 +15,23 @@
       </div>
       <div class="post-content">
         <%= post.content %>
+      </div>
+      <div class="post-category">
+        Category: <%= post.category.name %>
+      </div>
+      <div class="post-tags">
+        Tags: 
+        <% post.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+      </div>
+      <div class="posts-comments">
+        <p><%= link_to 'Add a comment', :controller => 'comments', :action => 'new', :post_id => post.id %></p>
+        <p>Comments:</p>
+
+        <ul class="posts-comments-list">
+          <%= render :partial => 'comments/comment', :collection => post.comments %>
+        </ul>
       </div>
     </div>
   <% end %>
