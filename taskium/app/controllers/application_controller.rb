@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def authorize
-    unless User.find(session[:user_id])
+    unless session[:user_id]
       redirect_to login_url, :notice => 'Please login first!'
     end 
   end

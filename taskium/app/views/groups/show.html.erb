@@ -5,6 +5,19 @@
   <%= @group.name %>
 </p>
 
+<table class="group-users">
+  <tr>
+    <td>Name</td>
+    <td>Student ID</td>
+  </tr>
+  <% @group.users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.student_id %></td>
+    </tr>
+  <% end %>
+</table>
+
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

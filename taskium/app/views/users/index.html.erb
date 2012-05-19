@@ -10,6 +10,8 @@
     <th>Student_id</th>
     <th>Email</th>
     <th>Website</th>
+    <th>group</th>
+    <th>role</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +23,12 @@
     <td><%= user.student_id %></td>
     <td><%= user.email %></td>
     <td><%= user.website %></td>
+    <td>
+    <% if user.group %>
+      <%= user.group.name %>
+    <% end %>
+    </td>
+    <td><%= user.role %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
