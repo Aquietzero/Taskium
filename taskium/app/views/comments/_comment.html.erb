@@ -1,12 +1,18 @@
 <li class="comment">
-  <div class="body">
-    <%= comment.content %>
+  <div class="subcomment">
+    <div class="comment-created">
+      <%= comment.created_at %>
+    </div>
+    <div class="comment-content">
+      <%= comment.content %>
+    </div>
+    <% if session[:user_id] %>
+      <p><%= link_to 'Add a Reply', new_comment_comment_path(comment) %></p>
+    <% end %>
   </div>
 
-  <p><%= link_to 'Add a Reply', new_comment_comment_path(comment) %></p>
-
   <% unless comment.comments.empty? %>
-    <ul class="comment_list">
+    <ul class="comment-list">
       <%= render :partial => 'comments/comment', :collection => comment.comments %>
     </ul>
   <% end %>

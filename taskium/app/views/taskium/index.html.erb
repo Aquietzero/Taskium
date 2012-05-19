@@ -26,7 +26,9 @@
         <% end %>
       </div>
       <div class="posts-comments">
-        <p><%= link_to 'Add a comment', :controller => 'comments', :action => 'new', :post_id => post.id %></p>
+        <% if session[:user_id] %>
+          <p><%= link_to 'Add a comment', :controller => 'comments', :action => 'new', :post_id => post.id %></p>
+        <% end %>
         <p>Comments:</p>
 
         <ul class="posts-comments-list">

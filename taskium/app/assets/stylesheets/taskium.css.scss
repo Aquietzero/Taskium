@@ -2,4 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.admin-bar {
+  li {
+    list-style-type: none;
+    display: inline;
+    float: right;
+    padding: 3px 5px;
+  }
+}

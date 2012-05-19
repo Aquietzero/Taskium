@@ -10,6 +10,21 @@
 
   <div id="header">
     <h1>Taskium</h1><span class="subtitle">| The Aristotle'S Knowledge Inside Ultimate Mass</span>
+    <div class="admin-bar">
+      <% if session[:user_id] %>
+        <li id="logout">
+          <%= link_to "logout(#{@user.name})", logout_url%>
+        </li>
+      <% end %>
+      <% unless session[:user_id] %>
+        <li id="login">
+          <%= link_to 'login', login_url  %>
+        </li>
+      <% end %>
+      <li id="register">
+        <%= link_to 'register', register_url %>
+      </li>
+    </div>
   </div>
 
   <div id="mainContent">

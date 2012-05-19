@@ -1,7 +1,19 @@
 Taskium::Application.routes.draw do
+
+  controller :sessions do
+    get    'login'  => :new
+    post   'login'  => :create
+    get    'logout' => :destroy
+    delete 'logout' => :destroy
+  end
+
+  controller :users do
+    get 'register' => :new
+  end
+
   get "taskium/index"
 
-  get "admin/index"
+  get "admin" => "admin#index"
 
   resources :posts
 
