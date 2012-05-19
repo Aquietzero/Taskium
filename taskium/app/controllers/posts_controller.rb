@@ -40,7 +40,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    post params[:post]
+    post[:user_id] = session[:user_id]
+    @post = Post.new(post)
 
     # Delete all the tags first to avoid repeated tags
     @post.tags.delete_all

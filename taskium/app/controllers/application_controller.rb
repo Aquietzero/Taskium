@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :set_user
+
   protect_from_forgery
 
   protected

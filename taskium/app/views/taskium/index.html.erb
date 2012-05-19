@@ -8,7 +8,10 @@
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-title">
-        <%= post.title %>
+        <h3><%= post.title %><h3>
+        <span class="post-author">
+          by <%= post.user.name %>
+        </span>
       </div>
       <div class="post-updated">
         <%= post.updated_at %>
@@ -26,8 +29,8 @@
         <% end %>
       </div>
       <div class="posts-comments">
-        <% if session[:user_id] %>
-          <p><%= link_to 'Add a comment', :controller => 'comments', :action => 'new', :post_id => post.id %></p>
+        <% if @user %>
+          <p><%= link_to 'Add a comment', new_post_comment_path(post) %></p>
         <% end %>
         <p>Comments:</p>
 

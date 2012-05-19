@@ -6,7 +6,10 @@
     <div class="comment-content">
       <%= comment.content %>
     </div>
-    <% if session[:user_id] %>
+    <div class="comment-user">
+      by <%= comment.user.name %>
+    </div>
+    <% if @user %>
       <p><%= link_to 'Add a Reply', new_comment_comment_path(comment) %></p>
     <% end %>
   </div>

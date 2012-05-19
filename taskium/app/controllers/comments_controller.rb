@@ -11,7 +11,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @@parent.comments.new(params[:comment])
+    comment = params[:comment]
+    comment[:user_id] = session[:user_id]
+
+    @comment = @@parent.comments.new(comment)
 
     respond_to do |format|
       if @comment.save

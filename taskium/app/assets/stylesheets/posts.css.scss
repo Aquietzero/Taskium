@@ -11,6 +11,15 @@
     padding: 5px;
   }
 
+  .post-author {
+    font: {
+      weight: normal;
+      style: italic;
+      size: 0.8em;
+    }
+    color: #666;
+  }
+
   .post-updated {
     text-align: right;
     color: #666;
