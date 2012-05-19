@@ -1,5 +1,7 @@
 Taskium::Application.routes.draw do
 
+  resources :groups
+
   controller :sessions do
     get    'login'  => :new
     post   'login'  => :create

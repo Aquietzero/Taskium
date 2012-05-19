@@ -8,10 +8,16 @@
 * student_id (primary key)
 * email
 * website
+* group_id
+* role
 
 ```ruby
     rails generate scaffold user name:string hashed_password:string salt:string student_id:string email:string website:string
 ```
+
+## Group
+
+* name
 
 ## Post
 
