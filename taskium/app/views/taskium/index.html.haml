@@ -1,0 +1,25 @@
+#notice
+  - if notice
+    %p= notice
+
+.posts
+  - @posts.each do |post|
+    .post
+      .post-title
+        %h3= post.title
+        %span.post-author
+          by #{post.user.name}
+      .post-updated= post.updated_at
+      .post-content= post.content
+      .post-category
+        Category: #{post.category.name}
+      .post-tags
+        Tags: 
+        - post.tags.each do |tag|
+          = tag.name 
+      .posts-comments
+        - if @user
+          %p= link_to 'Add a comment', new_post_comment_path(post)
+        %p Comments:
+        %ul.posts-comments-list
+          = render :partial => 'comments/comment', :collection => post.comments
