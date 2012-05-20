@@ -1,6 +1,13 @@
 Taskium::Application.routes.draw do
 
+  get "taskium/index"
+  get "admin" => "admin#index"
+
   resources :groups
+  controller :groups do
+    get 'groups/join/:id' => :join
+    get 'groups/quit/:id' => :quit
+  end
 
   controller :sessions do
     get    'login'  => :new
@@ -9,26 +16,20 @@ Taskium::Application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  resources :users
   controller :users do
     get 'register' => :new
   end
-
-  get "taskium/index"
-
-  get "admin" => "admin#index"
-
-  resources :posts
 
   resources :tags
 
   resources :categories
 
-  resources :users
-
   resources :comments do
     resources :comments
   end
 
+  resources :posts
   resources :posts do
     resources :comments
   end

@@ -10,14 +10,17 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
     <td><%= group.name %></td>
-    <td><%= link_to 'Join', group %></td>
+    <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
     <td><%= link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Join', :controller => 'groups', :action => 'join', :id => group %></td>
+    <td><%= link_to 'Quit', :controller => 'groups', :action => 'quit', :id => group %></td>
   </tr>
 <% end %>
 </table>

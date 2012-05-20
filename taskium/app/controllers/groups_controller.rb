@@ -14,18 +14,11 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-    user = User.find(session[:user_id])
 
-    unless user.group
-      @group.users << user
-      redirect_to admin_url, :notice => "You successfully joined group #{@group.name}"
-    else
-      redirect_to groups_url, :notice => "You are already in group #{user.group.name}"
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @group }
     end
-    # respond_to do |format|
-    # format.html # show.html.erb
-    # format.json { render json: @group }
-    # end
   end
 
   # GET /groups/new
@@ -56,6 +49,7 @@ class GroupsController < ApplicationController
       return
     end
 
+    # Makes the group creator the default manager of the group.
     @group = Group.new(params[:group])
     user.group = @group
     user.role = 'MANAGER'
@@ -102,5 +96,43 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /groups/join/1
+  # GET /groups/join/1.json
+  def join
+    @group = Group.find(params[:id])
+    user = User.find(session[:user_id])
+
+    unless user.group
+      @group.users << user
+      redirect_to admin_url, :notice => "You successfully joined group #{@group.name}"
+    else
+      redirect_to groups_url, :notice => "You are already in group #{user.group.name}"
+    end
+  end
+
+  # GET /groups/quit/1
+  # GET /groups/quit/1.json
+  def quit
+    @group = Group.find(params[:id])
+    user = User.find(session[:user_id])
+
+    # Make sure the user is in the group.
+    unless user.group_id == @group.id
+      redirect_to admin_url, :notice => "You are not in group #{@group.name}."
+    else
+      # If the manager of a group dismisses the group, then the group is deleted.
+      if user.role == 'MANAGER'
+        @group.users.each do |user|
+          user.update_attributes(:group_id => nil, :role => 'STUDENT')
+        end
+        @group.destroy
+        redirect_to admin_url, :notice => "Group #{@group.name} has been successfully dismissed."
+      else
+        user.update_attributes(:group_id => nil, :role => 'STUDENT')
+        redirect_to admin_url, :notice => "You have successfully quited #{@group.name}."
+      end 
+    end
+  end 
 
 end
