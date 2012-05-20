@@ -56,3 +56,13 @@
 ```ruby
     rails g model comment content:text user_id:integer commentable_id:integer commentable_type:string 
 ```
+
+## Task
+
+* name
+* requirement
+* due
+
+```ruby
+    rails g scaffold task name:string requirement:text due:date
+```

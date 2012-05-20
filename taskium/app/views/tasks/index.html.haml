@@ -1,0 +1,17 @@
+#notice
+  - if notice
+    %p= notice
+
+.tasks
+  - @tasks.each do |task|
+    .task
+      .task-title
+        %h3= task.name
+      .task-updated= task.updated_at
+      .task-requirement= task.requirement
+      .tasks-comments
+        - if @user
+          %p= link_to 'Add a comment', new_task_comment_path(task)
+        %p Comments:
+        %ul.tasks-comments-list
+          = render :partial => 'comments/comment', :collection => task.comments

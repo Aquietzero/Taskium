@@ -31,6 +31,8 @@ class CommentsController < ApplicationController
   def get_parent
     if params[:post_id]
       @@parent = Post.find(params[:post_id]) 
+    elsif params[:task_id]
+      @@parent = Task.find(params[:task_id])
     elsif params[:comment_id]
       @@parent = Comment.find(params[:comment_id])
     end

@@ -34,6 +34,11 @@ Taskium::Application.routes.draw do
     resources :comments
   end
 
+  resources :tasks
+  resources :tasks do
+    resources :comments
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
