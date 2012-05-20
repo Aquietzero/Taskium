@@ -1,5 +1,7 @@
 Taskium::Application.routes.draw do
 
+  resources :homeworks
+
   get "taskium/index"
   get "admin" => "admin#index"
 

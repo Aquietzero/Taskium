@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120520064857) do
+ActiveRecord::Schema.define(:version => 20120520073325) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(:version => 20120520064857) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "homeworks", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "group_grade"
+    t.integer  "final_grade"
+    t.integer  "group_rank"
+    t.integer  "final_rank"
+    t.string   "url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "posts", :force => true do |t|

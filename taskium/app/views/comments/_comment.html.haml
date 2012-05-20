@@ -1,0 +1,13 @@
+.comment
+  .subcomment
+    .comment-created
+      = comment.created_at
+    .comment-content
+      = comment.content
+    .comment-user
+      by #{comment.user.name}
+    - if @user
+      %p= link_to 'Add a Reply', new_comment_comment_path(comment)
+  - unless comment.comments.empty?
+    %ul.comment-list
+      = render :partial => 'comments/comment', :collection => comment.comments

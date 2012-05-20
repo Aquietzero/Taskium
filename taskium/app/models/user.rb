@@ -2,6 +2,7 @@ require 'digest/sha2'
 
 class User < ActiveRecord::Base
   has_many :comments
+  has_many :homeworks
   belongs_to :group
 
   validates :name, :presence => true, :uniqueness => true

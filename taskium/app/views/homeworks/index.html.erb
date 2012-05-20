@@ -1,0 +1,35 @@
+<h1>Listing homeworks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>User</th>
+    <th>Group grade</th>
+    <th>Final grade</th>
+    <th>Group rank</th>
+    <th>Final rank</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @homeworks.each do |homework| %>
+  <tr>
+    <td><%= homework.task_id %></td>
+    <td><%= homework.user_id %></td>
+    <td><%= homework.group_grade %></td>
+    <td><%= homework.final_grade %></td>
+    <td><%= homework.group_rank %></td>
+    <td><%= homework.final_rank %></td>
+    <td><%= homework.url %></td>
+    <td><%= link_to 'Show', homework %></td>
+    <td><%= link_to 'Edit', edit_homework_path(homework) %></td>
+    <td><%= link_to 'Destroy', homework, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Homework', new_homework_path %>
