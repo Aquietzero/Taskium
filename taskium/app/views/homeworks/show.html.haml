@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Task:
+  = @homework.task_id
+
+%p
+  %b User:
+  = @homework.user.name
+
+= link_to 'Edit', edit_homework_path(@homework) |
+= link_to 'Back', homeworks_path 

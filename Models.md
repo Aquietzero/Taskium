@@ -66,3 +66,17 @@
 ```ruby
     rails g scaffold task name:string requirement:text due:date
 ```
+
+## homework
+
+* task_id
+* user_id
+* group_grade
+* final_grade
+* group_rank
+* final_rank
+* url
+
+```ruby
+    rails g scaffold homework task_id:integer user_id:integer group_grade:integer final_grade:integer group_rank:integer final_rank:integer url:string
+```

@@ -7,7 +7,7 @@
     = csrf_meta_tags
   %body
     #header
-      %h1 Taskium
+      %h1= link_to 'Taskium', taskium_path
       %span.subtitle | The Aristotle'S Knowledge Inside Ultimate Mass
       %div.admin-bar
         / Shows the logout link only after the user has logged in.
