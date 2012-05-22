@@ -2,9 +2,36 @@
   %p= flash[:notice]
 
 .admin-functions
+  %b Userful Links
   %ul
     %li= link_to 'Add a post', new_post_path
     %li= link_to 'Add a group', new_group_path 
     %li= link_to 'View groups', groups_path
     %li= link_to 'View tasks', tasks_path
     %li= link_to 'Hand in Homework', new_homework_path
+
+.groupers
+  %b Users in your Group
+  %ul
+    - @groupers.each do |grouper|
+      %li= grouper.name 
+
+.tasks
+  %b Tasks on due
+  %ol.tasks
+    - Task.all.each do |task|
+      %li
+        %span.task-name= link_to task.name, task_path(task)
+        %span.task-due= "(#{task.due})"
+        - @groupers.each do |grouper|
+          %ul
+            - if get_homework(grouper, task)
+              %li= link_to get_homework_username(grouper, task),
+                homework_view_and_score_path(:user => grouper, :task => task)
+
+.homeworks
+  %b My Handed-in Homeworks
+  %ul
+    - @homeworks.each do |homework|
+      %li
+        %a{:href => "#{homework.task.id}/#{@user.student_id}/index.html"}= homework.file

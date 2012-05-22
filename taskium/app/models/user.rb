@@ -3,6 +3,7 @@ require 'digest/sha2'
 class User < ActiveRecord::Base
   has_many :comments
   has_many :homeworks
+  has_many :groupscores
   belongs_to :group
 
   validates :name, :presence => true, :uniqueness => true

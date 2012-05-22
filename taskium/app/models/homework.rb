@@ -2,6 +2,8 @@ class Homework < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :task
+  has_many :groupscores
+  has_one :finalscore
 
   before_save :get_file_data
   after_save :write_file
