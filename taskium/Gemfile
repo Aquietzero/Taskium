@@ -8,6 +8,7 @@ gem 'rails', '3.2.2'
 gem 'sqlite3'
 
 gem 'haml'
+gem 'highlight_js-rails', :git => 'git://github.com/chloerei/highlight_js-rails.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

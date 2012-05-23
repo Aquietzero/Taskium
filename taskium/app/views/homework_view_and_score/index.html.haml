@@ -1,9 +1,17 @@
+.grouper-list
+  %ul
+    - @groupers.each do |grouper|
+      %li
+        = grouper.name
 
-.homework-infomation
-  %p= @homework.user.name
+        / The file tree of the directory of the corresponding grouper.
+        %ul.file-tree{ :id => grouper.student_id }
+          .li
+            = link_to "#{grouper.student_id}",
+              file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
+                             :student_id => grouper.student_id),
+              :remote => true
 
-.dir-tree
-
-.source-area
-
-
+#source-code
+  %pre
+    %code

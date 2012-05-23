@@ -13,8 +13,9 @@
 .groupers
   %b Users in your Group
   %ul
-    - @groupers.each do |grouper|
-      %li= grouper.name 
+    - if @groupers
+      - @groupers.each do |grouper|
+        %li= grouper.name 
 
 .tasks
   %b Tasks on due
@@ -23,11 +24,8 @@
       %li
         %span.task-name= link_to task.name, task_path(task)
         %span.task-due= "(#{task.due})"
-        - @groupers.each do |grouper|
-          %ul
-            - if get_homework(grouper, task)
-              %li= link_to get_homework_username(grouper, task),
-                homework_view_and_score_path(:user => grouper, :task => task)
+        %span.task-score= link_to 'Evaluate',
+          homework_view_and_score_path(:user => @user, :task => task)
 
 .homeworks
   %b My Handed-in Homeworks

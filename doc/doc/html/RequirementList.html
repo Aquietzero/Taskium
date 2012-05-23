@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr">
+    <meta charset="utf-8" />
+    <head>
+    <title>需求列表</title>
+    <style>
+#preview pre::-webkit-scrollbar-track-piece {
+    background: #141414;
+}
+#preview pre::-webkit-scrollbar-thumb {
+    background: #141414;
+}
+#preview pre::-webkit-scrollbar-thumb:hover {
+    background: #6f6f6f;
+    border:0;
+}
+.ace_editor.dark {
+    background: #141414;
+}
+#preview_pane {
+    overflow: auto;
+}
+#preview {
+    padding: 0 20px;
+}
+
+#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+    font-weight: bold;
+    margin: 0.75em 0;
+}
+#preview h1 {
+    font-size: 2em;
+}
+#preview h2 {
+    font-size: 1.8em;
+}
+#preview h3 {
+    font-size: 1.6em;
+}
+#preview h4 {
+    font-size: 1.4em;
+}
+#preview h5 {
+    font-size: 1.2em;
+}
+#preview h6 {
+    font-size: 1.0em;
+}
+#preview blockquote {
+    padding-left: 40px;
+    border-left: 5px #7d7d7d solid;
+}
+#preview ul, #preview ol {
+    margin-left: 20px;
+}
+#preview pre {
+    margin: 10px;
+    background-color: #141414;
+    padding: 10px;
+    color: #f2f2f2;
+    overflow: auto;
+}
+
+#preview code {
+    font-size: 14px;
+    font-family: 'monospace','Monaco';
+}
+#preview p {
+    margin: 1em 0;
+}
+
+#preview { margin: 0 auto; width: 800px;}
+    </style>
+    </head>
+    <body>
+        <div id="preview"><h1>需求列表</h1>
+
+<h2>用户需求</h2>
+
+<h3>学生</h3>
+
+<ul>
+<li>选定了课程的学生可以成为系统用户。</li>
+<li>任何学生都可以创建分组，创始人自动加入该组，默认成为组长。</li>
+<li>学生可以自行加入和退出任何小组，每个学生只能是一个小组的成员。</li>
+<li>学生可以提交作业。</li>
+<li>同组成员可以下载作业的源代码，方便评审。</li>
+<li>学生可以多次提交作业。</li>
+<li>可以看到自己的作业列表，包括各次分数，排名信息和源码部署应用的链接。</li>
+<li>修改个人信息。</li>
+<li>就某个作业要求进行评论。</li>
+</ul>
+
+<h3>组长</h3>
+
+<ul>
+<li>组长可以添加，删除组员。</li>
+<li>组长可以提交本小组的组内评审结果，给出每个成员的组内排名。</li>
+</ul>
+
+<h3>TA和老师</h3>
+
+<ul>
+<li>老师或者TA首先从教务系统获得一份学生名单，并将此名单交给系统。</li>
+<li>可以锁定分组，分组一旦锁定，任何用户都无法创建小组，也无法离开和加入小组。</li>
+<li>可以发布作业。</li>
+<li>可以修改一个已发布但未截止的作业。</li>
+<li>可以下载所有作业的源代码。</li>
+<li>可以设定作业的截止时间。</li>
+<li>可以修改作业的截止时间。</li>
+<li>发布作业的评分结果。</li>
+<li>对没有小组的零散学生进行分组。</li>
+</ul>
+
+<h2>系统需求</h2>
+
+<ul>
+<li>在用户注册的时候，系统通过检查学生名单确定该学生是否选报了此课程，并根据此来决定用户注册的成功与否。</li>
+<li>上交的作业都需要被部署为Web应用，这些应用能够被所有用户访问。</li>
+<li>小组如果组员为空，则小组自动被删除。</li>
+<li>系统自动识别学生提交的最新作业，并只保留最新版本。</li>
+<li>如果截止时间已过，那么所有的学生都不能提交作业。</li>
+</ul></div></body></html>

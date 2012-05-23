@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/chloerei/highlight_js-rails.git
+  revision: c48a19bb3fbc305531e4d53f0dbc04e0e764c668
+  specs:
+    highlight_js-rails (0.0.2)
+      rails (>= 3.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,6 +113,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   haml
+  highlight_js-rails!
   jquery-rails
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)

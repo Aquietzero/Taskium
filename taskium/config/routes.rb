@@ -4,7 +4,12 @@ Taskium::Application.routes.draw do
 
   get "taskium/index"
   get "admin" => "admin#index"
-  get "homework_view_and_score" => "homework_view_and_score#index"
+
+  controller :homework_view_and_score do
+    get 'homework_view_and_score' => :index
+    get 'show_source' => :show_source
+    get 'file_tree' => :file_tree
+  end
 
   resources :groups
   controller :groups do

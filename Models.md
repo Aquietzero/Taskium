@@ -80,3 +80,13 @@
 ```ruby
     rails g scaffold homework task_id:integer user_id:integer group_grade:integer final_grade:integer group_rank:integer final_rank:integer url:string
 ```
+
+## groupscore
+
+* score
+* comment
+
+## finalscore
+
+* score
+* comment
