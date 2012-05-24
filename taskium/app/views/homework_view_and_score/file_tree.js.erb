@@ -1,14 +1,32 @@
 
-// Get the current file tree.
-var current_file_tree = $('#09388123');
+// Get the current file tree of a specific student.
+var current_file_tree = $('#<%= @student_id %>');
+
+current_file_tree.empty();
 
 <% @file_tree.each do |tree_item| %>
   // If the tree item is a directory, then the process can be keep going.
   <% if tree_item[:type] == 'dir' %>
-      current_file_tree.append('<li><%= link_to tree_item[:name], file_tree_path(:path => tree_item[:path], :student_id => @student_id), :remote => true %></li>');
+      current_file_tree.append(
+        '<li>' + 
+        '<%= link_to tree_item[:name], file_tree_path(
+            :path => tree_item[:path], 
+            :student_id => @student_id
+          ), 
+        :remote => true %>' +
+        '</li>'
+      );
   <% end %>
+
   // If the tree item is a file, then the link will be directed to the show_source controller.
   <% if tree_item[:type] == 'file' %>
-      current_file_tree.append('<li><%= link_to tree_item[:name], show_source_path(:path => tree_item[:path]), :remote => true %></li>');
+      current_file_tree.append(
+        '<li>' + 
+        '<%= link_to tree_item[:name], show_source_path(
+            :path => tree_item[:path]
+          ), 
+        :remote => true %>' +
+        '</li>'
+      );
   <% end %>
 <% end %>

@@ -29,27 +29,43 @@ class HomeworkViewAndScoreController < ApplicationController
 
   def file_tree
     path = params[:path]
-    student_id = params[:student_id]
-
+    @student_id = params[:student_id]
     @file_tree = []
+
     dir = Dir.open(path)
     if dir
       while name = dir.read
-        if name == '.'
-          @file_tree.push({ :name => name, :type => 'dir', :path => path })
-        elsif name == '..'
-          @file_tree.push({ :name => name, :type => 'dir', :path => path })
-        elsif FileTest.directory?(path + '/name')
+
+        # Current directory
+        next if name == '.' 
+
+        # Previous directory
+        if name == '..'
+          # If the path is already /public/task_id/student_id, then no further backtrace
+          # is allowed.
+          unless path.split('/')[-1] == @student_id
+            prev_path = path.split('/')
+            if prev_path.length > 1
+              prev_path = prev_path[0, prev_path.length - 1].join('/')
+            else
+              prev_path = prev_path.join('/')
+            end
+            @file_tree.push({ :name => name, :type => 'dir', :path => prev_path })
+          end
+
+        # Directory in the current directory
+        elsif File.directory?(path + "/#{name}")
           @file_tree.push({ :name => name, :type => 'dir', :path => path + "/#{name}" })
+
+        # File in the current directory
         else
           @file_tree.push({ :name => name, :type => 'file', :path => path + "/#{name}" })
         end
+
       end
     end
 
-    puts '==================================================================='
-    puts @file_tree
-    puts '==================================================================='
+    @file_tree.sort_by! {|f| f[:name]}
 
     respond_to do |format|
       format.html # index.html.haml
