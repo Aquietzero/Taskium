@@ -1,1 +1,3 @@
-$('#source-code pre code').html("<%= j @source %>");
+$('#source-code pre').empty();
+$('#source-code pre').append('<code><%= j @source %></code>');
+$('#source-code pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
