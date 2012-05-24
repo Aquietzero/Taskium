@@ -89,7 +89,22 @@ class HomeworkViewAndScoreController < ApplicationController
     @task = Task.find(params[:task])
     @grouper_score = Groupscore.new(params[:groupscore])
 
+    # Get the homework
     homework = @grouper.homeworks.find_by_task_id(@task.id)
+    # If the user has evaluated this homework, then one of the scores of the homework
+    # must be evaluated by the current user. In such a case, the uesr is prohibited to
+    # evaluated the score again.
+    homework.groupscores.each do |groupscore|
+      if groupscore.user == @user
+        respond_to do |format|
+          format.html
+          format.js { @notice = 'You have already evaluated this homework!' }
+        end
+        return
+      end
+    end
+
+    # The user is the first time to evaluate the homework.
     @grouper_score.user = @user
     @grouper_score.homework = homework
 
@@ -100,4 +115,5 @@ class HomeworkViewAndScoreController < ApplicationController
       end 
     end
   end
-end
+
+end 

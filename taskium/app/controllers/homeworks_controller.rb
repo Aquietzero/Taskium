@@ -45,15 +45,10 @@ class HomeworksController < ApplicationController
   def create
     @homework = Homework.new(params[:homework])
     user = User.find(session[:user_id])
-    # file = params[:homework][:file]
 
     @homework.user = user
-    # @homework.file = file.original_filename
-
     respond_to do |format|
       if @homework.save
-        # path = "#{::Rails.root}/public/#{@homework.task.id}/#{@homework.user.student_id}"
-
         format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
         format.json { render json: @homework, status: :created, location: @homework }
       else
