@@ -2,11 +2,11 @@ class Homework < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :task
-  has_many :groupscores
-  has_one :finalscore
+  has_many   :groupscores
+  has_one    :finalscore
 
-  before_save :get_file_data
-  after_save :write_file
+  before_save   :get_file_data
+  after_save    :write_file
   after_destroy :delete_homework_file
 
   # Before save the file data into the database, set the path and keep
@@ -14,7 +14,7 @@ class Homework < ActiveRecord::Base
   def get_file_data
     @path = "#{::Rails.root}/public/#{self.task.id}/#{self.user.student_id}"
     @file = self.file
-    self.file = self.file.original_filename
+    self.file = self.file.original_filename unless self.file
   end
 
   # After saving the file into the database, deploy the file to the set

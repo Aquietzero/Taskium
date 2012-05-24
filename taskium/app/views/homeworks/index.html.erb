@@ -8,6 +8,7 @@
     <th>Final rank</th>
     <th>Url</th>
     <th>File path</th>
+    <th>Homework ID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= homework.final_rank %></td>
     <td><%= homework.url %></td>
     <td><%= homework.file %></td>
+    <td><%= homework.id %></td>
     <td><%= link_to 'Show', homework %></td>
     <td><%= link_to 'Edit', edit_homework_path(homework) %></td>
     <td><%= link_to 'Destroy', homework, confirm: 'Are you sure?', method: :delete %></td>

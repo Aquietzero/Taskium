@@ -1,16 +1,28 @@
 .grouper-list
-  %ul
-    - @groupers.each do |grouper|
-      %li
-        = grouper.name
+  %ul.grouper-file-tree-list
+    / The file tree of the directory of the current user.
+    %li.file-tree
+      = link_to "#{@user.name}",
+        homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{@user.student_id}",
+                       :student_id => @user.student_id),
+        :remote => true
 
-        / The file tree of the directory of the corresponding grouper.
+    %li
+      %ul{ :id => @user.student_id }
+
+    / The file tree of the directory of the corresponding grouper.
+    - @groupers.each do |grouper|
+      %li.file-tree
+        = link_to "#{grouper.name}",
+          homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
+                         :student_id => grouper.student_id),
+          :remote => true
+        = link_to "evaluate", homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
+
+      %li
         %ul.file-tree{ :id => grouper.student_id }
-          .li
-            = link_to "#{grouper.student_id}",
-              file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
-                             :student_id => grouper.student_id),
-              :remote => true
+
+#evaluate-form
 
 #source-code
   %pre

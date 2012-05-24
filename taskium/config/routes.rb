@@ -7,8 +7,10 @@ Taskium::Application.routes.draw do
 
   controller :homework_view_and_score do
     get 'homework_view_and_score' => :index
-    get 'show_source' => :show_source
-    get 'file_tree' => :file_tree
+    get 'homework_view_and_score/show_source' => :show_source
+    get 'homework_view_and_score/file_tree' => :file_tree
+    get 'homework_view_and_score/evaluate'  => :evaluate
+    post 'homework_view_and_score/evaluated'  => :evaluated
   end
 
   resources :groups

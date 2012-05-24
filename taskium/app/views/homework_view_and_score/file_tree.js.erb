@@ -9,7 +9,7 @@ current_file_tree.empty();
   <% if tree_item[:type] == 'dir' %>
       current_file_tree.append(
         '<li>' + 
-        '<%= link_to tree_item[:name], file_tree_path(
+        '<%= link_to tree_item[:name], homework_view_and_score_file_tree_path(
             :path => tree_item[:path], 
             :student_id => @student_id
           ), 
@@ -22,7 +22,7 @@ current_file_tree.empty();
   <% if tree_item[:type] == 'file' %>
       current_file_tree.append(
         '<li>' + 
-        '<%= link_to tree_item[:name], show_source_path(
+        '<%= link_to tree_item[:name], homework_view_and_score_show_source_path(
             :path => tree_item[:path]
           ), 
         :remote => true %>' +

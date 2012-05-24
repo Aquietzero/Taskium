@@ -73,4 +73,31 @@ class HomeworkViewAndScoreController < ApplicationController
     end
   end
 
+  def evaluate
+    @grouper = params[:grouper]
+    @task = params[:task]
+    @groupscore = Groupscore.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def evaluated
+    @grouper = User.find(params[:grouper])
+    @task = Task.find(params[:task])
+    @grouper_score = Groupscore.new(params[:groupscore])
+
+    homework = @grouper.homeworks.find_by_task_id(@task.id)
+    @grouper_score.user = @user
+    @grouper_score.homework = homework
+
+    respond_to do |format|
+      if @grouper_score.save
+        format.html
+        format.js
+      end 
+    end
+  end
 end
