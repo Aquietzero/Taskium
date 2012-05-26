@@ -1,0 +1,19 @@
+.login-form
+  = form_tag do
+    %fieldset
+      %legend Login
+
+      - if flash[:alert]
+        %p.alert= flash[:alert]
+
+      .form-row
+        %label{:for => "name"} Name:
+        = text_field_tag :name, params[:name]
+
+      .form-row
+        %label{:for => "password"} Password:
+        = password_field_tag :password, params[:password]
+
+      .form-row
+        = submit_tag 'Login'
+
