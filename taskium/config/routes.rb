@@ -1,5 +1,10 @@
 Taskium::Application.routes.draw do
 
+  resources :group_due_dates
+  controller :group_due_dates do
+    get 'forbid_group_operation' => :forbid_now
+  end
+
   resources :homeworks
 
   get "taskium/index"

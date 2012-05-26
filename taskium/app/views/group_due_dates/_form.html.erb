@@ -1,0 +1,21 @@
+<%= form_for(@group_due_date) do |f| %>
+  <% if @group_due_date.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group_due_date.errors.count, "error") %> prohibited this group_due_date from being saved:</h2>
+
+      <ul>
+      <% @group_due_date.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.datetime_select :due_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

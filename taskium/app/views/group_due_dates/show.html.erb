@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Due date:</b>
+  <%= @group_due_date.due_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_due_date_path(@group_due_date) %> |
+<%= link_to 'Back', group_due_dates_path %>

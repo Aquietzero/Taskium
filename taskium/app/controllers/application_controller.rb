@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :set_user
+  before_filter :set_group_due_date
 
   protect_from_forgery
 
@@ -16,4 +17,9 @@ class ApplicationController < ActionController::Base
       @user = User.find(session[:user_id])
     end
   end
+
+  def set_group_due_date
+    @group_due_date = GroupDueDate.find(1)
+  end
+
 end

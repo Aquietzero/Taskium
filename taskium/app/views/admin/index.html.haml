@@ -1,14 +1,21 @@
 - if flash[:notice]
   %p= flash[:notice]
-
+ 
 .admin-functions
   %b Userful Links
   %ul
     %li= link_to 'Add a post', new_post_path
-    %li= link_to 'Add a group', new_group_path 
-    %li= link_to 'View groups', groups_path
+    - if @group_due_date.due_date > Time.now
+      %li= link_to 'Add a group', new_group_path 
+      %li= link_to 'View groups', groups_path
     %li= link_to 'View tasks', tasks_path
     %li= link_to 'Hand in Homework', new_homework_path
+
+  %b If you are a teacher or manager, you can see the following:
+  - if @user.role == 'MANAGER' or @user.role == 'TEACHER'
+    %ul
+      %li= link_to 'Set group operation due time', edit_group_due_date_path(@group_due_date)
+      %li= link_to 'Forbid group operation now', forbid_group_operation_path
 
 .groupers
   %b Users in your Group

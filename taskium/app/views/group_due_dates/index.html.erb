@@ -1,0 +1,22 @@
+<h1>Listing group_due_dates</h1>
+
+<table>
+  <tr>
+    <th>Due date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @group_due_dates.each do |group_due_date| %>
+  <tr>
+    <td><%= group_due_date.due_date %></td>
+    <td><%= link_to 'Show', group_due_date %></td>
+    <td><%= link_to 'Edit', edit_group_due_date_path(group_due_date) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Group due date', new_group_due_date_path %>
