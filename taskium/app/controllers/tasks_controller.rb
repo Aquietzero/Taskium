@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+  layout :set_layout
+
   # GET /tasks
   # GET /tasks.json
   def index

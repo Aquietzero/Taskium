@@ -1,4 +1,6 @@
 class TaskiumController < ApplicationController
+
+  layout :set_layout
   skip_before_filter :authorize
 
   def index

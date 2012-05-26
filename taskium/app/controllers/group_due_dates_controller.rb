@@ -1,4 +1,6 @@
 class GroupDueDatesController < ApplicationController
+
+  layout :set_layout
   # GET /group_due_dates
   # GET /group_due_dates.json
 

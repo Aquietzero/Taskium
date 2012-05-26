@@ -1,4 +1,7 @@
 class TagsController < ApplicationController
+
+  layout :set_layout
+
   # GET /tags
   # GET /tags.json
   def index

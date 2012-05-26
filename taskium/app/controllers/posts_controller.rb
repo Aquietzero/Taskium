@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  layout :set_layout
+
   # GET /posts
   # GET /posts.json
   def index

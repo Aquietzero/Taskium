@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %title Taskium
+    = stylesheet_link_tag 'application', :media => 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    #header
+      %h1= link_to 'Taskium', taskium_path
+      %span.subtitle | The Aristotle'S Knowledge Inside Ultimate Mass
+      %div.admin-bar
+        / Shows the logout link only after the user has logged in.
+        -if session[:user_id]
+          %li#logout
+            = link_to "logout(#{@user.name})", logout_url
+        / Shows the login link only before the user has logged in.
+        - unless session[:user_id]
+          %li#login
+            = link_to 'login', login_url
+        / Shows the admin link only after the user has logged in.
+        - if session[:user_id]
+          %li#admin
+            = link_to "admin", admin_url
+        / Shows the register link all the time.
+        %li#register
+          = link_to 'register', register_url
+
+    #sidebar
+      %p Groups Managerment
+      %ul
+        %li= link_to 'View the groups', groups_path
+        %li= link_to 'Set group operation due time', edit_group_due_date_path(@group_due_date)
+        %li= link_to 'Forbid group operation now', forbid_group_operation_path
+
+      %p Students Managerment
+      %ul
+        %li= link_to 'View the students', users_path
+
+      %p Tasks Managerment
+      %ul
+        %li= link_to 'View the tasks', tasks_path
+
+    #mainContent
+      = yield
+
+    #footer
+      %p Powered by Rails
+      %p Copyright &copy; 2011 ~ 2012

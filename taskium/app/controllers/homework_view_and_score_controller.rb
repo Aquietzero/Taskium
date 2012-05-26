@@ -1,5 +1,7 @@
 class HomeworkViewAndScoreController < ApplicationController
 
+  layout :set_layout
+
   def index
     @user = User.find(params[:user])
     @task = Task.find(params[:task])

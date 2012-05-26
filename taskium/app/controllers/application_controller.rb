@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_group_due_date
 
   protect_from_forgery
-
+  
   protected
   def authorize
     unless session[:user_id]
@@ -20,6 +20,18 @@ class ApplicationController < ActionController::Base
 
   def set_group_due_date
     @group_due_date = GroupDueDate.find(1)
+  end
+
+  def set_layout
+    if @user 
+      if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+        'admin_layout'
+      elsif @user.role == 'STUDENT'
+        'student_layout'
+      end 
+    else
+      'application' 
+    end 
   end
 
 end

@@ -1,0 +1,39 @@
+- if flash[:notice]
+  %p= flash[:notice]
+ 
+.admin-functions
+  %b Userful Links
+  %ul
+    %li= link_to 'Add a post', new_post_path
+    - if @group_due_date.due_date > Time.now
+      %li= link_to 'Add a group', new_group_path 
+      %li= link_to 'View groups', groups_path
+    %li= link_to 'View tasks', tasks_path
+    %li= link_to 'Hand in Homework', new_homework_path
+
+.groupers
+  %b Users in your Group
+  %ul
+    - if @groupers
+      - @groupers.each do |grouper|
+        %li= grouper.name 
+
+.tasks
+  %b Tasks on due
+  %ol.tasks
+    - @tasks.each do |task|
+      %li
+        %span.task-name= link_to task.name, task_path(task)
+        %span.task-due= "(#{task.due})"
+        %span.task-score= link_to 'Evaluate',
+          homework_view_and_score_path(:user => @user, :task => task)
+
+.homeworks
+  %b My Handed-in Homeworks
+  %ul
+    - @homeworks.each do |homework|
+      %li
+        %a{:href => "#{homework.task.id}/#{@user.student_id}/index.html"}= homework.file
+        - homework.groupscores.each do |groupscore|
+          %span= groupscore.score
+          %span= groupscore.explanation

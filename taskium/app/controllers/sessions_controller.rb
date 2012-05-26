@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+
+  layout :set_layout
   skip_before_filter :authorize
 
   def new
@@ -7,7 +9,9 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:name], params[:password])
       session[:user_id] = user.id
-      redirect_to admin_url
+      user = User.find(user.id)
+      redirect_to admin_url if user.role == 'TEACHER' or user.role == 'ADMIN'
+      redirect_to student_admin_url if user.role == 'STUDENT'
     else
       redirect_to login_url, :alert => "Invalid name/password combination!"
     end 

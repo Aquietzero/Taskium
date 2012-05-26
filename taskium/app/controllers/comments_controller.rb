@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+  layout :set_layout
   before_filter :get_parent
 
   def new 

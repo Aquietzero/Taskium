@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+  layout :set_layout
+
   # GET /categories
   # GET /categories.json
   def index

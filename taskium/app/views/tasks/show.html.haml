@@ -1,0 +1,17 @@
+- if flash[:notice]
+  %p= flash[:notice]
+  
+%p
+  %b Name:
+  = @task.name
+
+%p
+  %b Requirement:
+  = @task.requirement
+
+%p
+  %b Due:
+  = @task.due
+
+= link_to 'Edit', edit_task_path(@task)
+= link_to 'Back', tasks_path 

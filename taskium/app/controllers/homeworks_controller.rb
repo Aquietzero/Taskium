@@ -1,4 +1,6 @@
 class HomeworksController < ApplicationController
+
+  layout :set_layout
   before_filter :get_tasks
 
   # GET /homeworks

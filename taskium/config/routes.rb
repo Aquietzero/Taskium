@@ -1,14 +1,16 @@
 Taskium::Application.routes.draw do
 
+  get "taskium/index"
+  get "student_admin" => "student_admin#index"
+
+  get "admin" => "admin#index"
+
   resources :group_due_dates
   controller :group_due_dates do
     get 'forbid_group_operation' => :forbid_now
   end
 
   resources :homeworks
-
-  get "taskium/index"
-  get "admin" => "admin#index"
 
   controller :homework_view_and_score do
     get 'homework_view_and_score' => :index
