@@ -16,3 +16,32 @@
 
 $ ->
   hljs.initHighlightingOnLoad()
+  sidebar_hover_effect()
+  comments_expandable()
+
+
+
+sidebar_hover_effect = ->
+
+  links = $('#sidebar .menu-item a')
+
+  for link in links
+    $(link).hover (-> $(this).parent().css
+      # 'backgroundColor':'#ddd'
+      'box-shadow':'0 5px 5px rgba(150, 150, 150, 0.2) inset'
+    ), (-> $(this).parent().css
+      'backgroundColor':'#eee'
+      'box-shadow':'0 0 0 #eee inset'
+    )
+
+
+comments_expandable = ->
+
+  comments_controls = $('.comments-control')
+
+  for comments_control in comments_controls
+  
+    $(comments_control).click( ->
+      $(this).next('.posts-comments-list').slideToggle()
+    )
+

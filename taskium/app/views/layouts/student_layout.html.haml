@@ -22,22 +22,32 @@
         / Shows the admin link only after the user has logged in.
         - if session[:user_id]
           %li#admin
-            = link_to "admin", admin_url
+            = link_to "admin", student_admin_url
         / Shows the register link all the time.
         %li#register
           = link_to 'register', register_url
 
     #sidebar
-      .admin-functions
-        %b Userful Links
-        %ul
-          %li= link_to 'Add a post', new_post_path
+      .sub-menu 
+        %strong.menu-title GROUP
+        %ul.menu-items
           - if @group_due_date.due_date > Time.now
-            %li= link_to 'Add a group', new_group_path 
-            %li= link_to 'View groups', groups_path
-          %li= link_to 'View tasks', tasks_path
-          %li= link_to 'Hand in Homework', new_homework_path
-    
+            %li.menu-item= link_to 'Add a group', new_group_path 
+          %li.menu-item= link_to 'View groups', groups_path
+
+      .sub-menu 
+        %strong.menu-title POST 
+        %ul.menu-items
+          %li.menu-item= link_to 'Add a post', new_post_path
+          %li.menu-item= link_to 'View posts', posts_path
+          %li.menu-item= link_to 'Categories', categories_path 
+
+      .sub-menu 
+        %strong.menu-title HOMEWORK 
+        %ul.menu-items
+          %li.menu-item= link_to 'View tasks', tasks_path
+          %li.menu-item= link_to 'Hand-in Homework', new_homework_path 
+   
     #main-content
       = yield
 

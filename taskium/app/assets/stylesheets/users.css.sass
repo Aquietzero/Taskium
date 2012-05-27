@@ -1,0 +1,55 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.register-form
+  width: 400px
+  margin: 150px auto
+
+  fieldset
+    border: solid 1px #ccc
+    background-color: #ddd
+    box-shadow: 0 10px 10px #ddd
+
+    legend
+      font-size: 13pt
+      font-weight: bold
+
+  .form-row
+    width: 80%
+    margin: 10px auto
+    padding: 0
+    overflow: hidden
+    text-align: center
+
+    label
+      float: left
+      display: block
+
+    input
+      border: solid 1px #ccc
+      background-color: #eee
+      margin: 5px auto
+      width: 96%
+      padding: 2px
+      &:hover
+        border: solid 1px #bbb
+        background-color: #efefef
+        box-shadow: 0 0 3px #ccc
+      &:focus
+        background-color: #efefef
+        box-shadow: 0 0 3px #ccc
+
+    input[type='submit']
+      float: right
+      width: 30%
+      &:hover
+        color: black
+
+  .alert
+    color: red
+    text-align: center
+
+  .notice
+    color: green
+    text-align: center

@@ -1,13 +1,13 @@
 .comment
   .subcomment
-    .comment-created
-      = comment.created_at
+    .comment-info
+      = comment.created_at.strftime('%Y-%m-%d %H:%M:%S')
+      by #{comment.user.name}
     .comment-content
       = comment.content
-    .comment-user
-      by #{comment.user.name}
+
     - if @user
-      %p= link_to 'Add a Reply', new_comment_comment_path(comment)
+      %p.add-reply= link_to 'Add a Reply', new_comment_comment_path(comment)
   - unless comment.comments.empty?
     %ul.comment-list
       = render :partial => 'comments/comment', :collection => comment.comments

@@ -16,8 +16,10 @@ body
   margin: 0
   padding: 0
   background: #eee
+  min-width: 1200px
 
 #header
+  z-index: 100
   padding: 20px
   overflow: hidden
   border-bottom: solid 1px #ddd
@@ -46,14 +48,63 @@ body
       weight: normal
     vertical-align: middle
 
-#main-content
-  margin: 0
+#sidebar
+  width: 160px
+  float: left
+  margin: 50px auto auto 0
+  text-align: left 
   padding: 0
 
-#sidebar
-  background-color: #ccc
+  .sub-menu
+    padding: 0
+
+    .menu-title
+      width: 101%
+      display: block
+      padding: 10px 20px
+      background-color: #f6f6f6
+      box-shadow: 0 0 3px #ddd
+      font-size: 1.2em
+      border:
+        top:    solid 1px #ddd
+        right:  solid 1px #ddd
+        bottom: solid 1px #ddd
+
+    .menu-items
+      margin: 0
+      padding: 0
+      list-style-type: none
+      border-right: solid 1px #ddd
+      font-size: 1.1em
+
+      .menu-item
+        margin-top: -1px
+        padding: 10px 40px
+        border-top: solid 1px #ddd
+
+        a
+          color: #666
+          display: block
+          width: 100%
+          &:hover
+            color: #333
+            text-shadow: 1px 0 1px white
+            margin-left: 1px
+
+#main-content
+  z-index: 0
+  padding: 20px
+  width: 850px
+  float: left
+  min-height: 500px
+  margin: 50px auto 50px 80px
+  background-color: #f6f6f6
+  border: solid 3px #ddd
+  border-radius: 5px
+  box-shadow: 0 0 1px #333 inset
 
 #footer
+  clear: both
   border-top: solid 1px #999
   width: 100%
   text-align: center

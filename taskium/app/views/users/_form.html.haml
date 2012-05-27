@@ -1,0 +1,39 @@
+.register-form
+  = form_for(@user) do |f|
+    - if @user.errors.any? 
+      #error_explanation
+        %h2= pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+  
+        %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg 
+  
+    %fieldset
+      %legend Register
+      .form-row
+        %label{:for=>'name'} Name
+        = f.text_field :name
+      .form-row
+        %label{:for=>'password'} Password
+        = f.password_field :password, :size => 40
+      .form-row
+        %label{:for=>'password_confirmation'} Confirm
+        = f.password_field :password_confirmation, :size => 40
+      .form-row
+        %label{:for=>'student_id'} Student ID
+        = f.text_field :student_id
+      .form-row
+        %label{:for=>'email'} Email
+        = f.email_field :email
+      .form-row
+        %label{:for=>'website'} Website
+        = f.url_field :website
+      .form-row
+        %label{:for=>'Group'} Group
+        = select('user', 'group_id', Group.all.collect {|g| [g.name, g.id]}, :include_blank => true)
+      .form-row
+        %label{:for=>'role'} Role
+        = f.text_field :role
+      .form-row 
+        = f.submit

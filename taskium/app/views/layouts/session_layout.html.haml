@@ -27,25 +27,7 @@
         %li#register
           = link_to 'register', register_url
 
-    #sidebar
-      .sub-menu 
-        %strong.menu-title GROUPS
-        %ul.menu-items
-          %li.menu-item= link_to 'View groups', groups_path
-          %li.menu-item= link_to 'Set due time', edit_group_due_date_path(@group_due_date)
-          %li.menu-item= link_to 'Forbid group operations', forbid_group_operation_path
-
-      .sub-menu 
-        %strong.menu-title STUDENTS 
-        %ul.menu-items
-          %li.menu-item= link_to 'View students', users_path 
-
-      .sub-menu 
-        %strong.menu-title TASKS 
-        %ul.menu-items
-          %li.menu-item= link_to 'View tasks', tasks_path
-   
-    #main-content
+    #main-content-session
       = yield
 
     #footer

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  layout :set_layout
+  layout 'session_layout'
   skip_before_filter :authorize
 
   def new

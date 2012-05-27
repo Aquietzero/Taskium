@@ -1,0 +1,63 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post 
+  padding: 30px 20px
+
+  .post-title 
+    h2 
+      display: inline
+      a
+        color: #333
+        font:
+          weight: bold
+          size: 1.2em
+          family: sans-serif
+        padding: 5px 
+        margin: 0
+        &:hover
+          color: black
+
+    .post-author
+      font:
+        weight: normal 
+        style: italic 
+        size: 0.8em 
+      color: #666 
+      margin: 0
+      padding: 0
+
+  .post-updated
+    text-align: right 
+    color: #666 
+
+  .post-content
+    padding: 20px 
+
+  .post-category
+    font-style: italic 
+
+  .post-tags
+    font-style: italic 
+
+  .sub-title
+    font-style: normal
+    color: black
+
+  .comments-control
+    &:hover
+      cursor: pointer
+      color: black
+
+  .posts-comments
+    text-align: right
+
+  .posts-comments-list
+    display: none
+
+  .add-comment
+    a
+      color: #333
+      &:hover
+        color: black
