@@ -5,6 +5,8 @@
 
       - if flash[:alert]
         %p.alert= flash[:alert]
+      - if flash[:notice]
+        %p.notice= flash[:notice]
 
       .form-row
         %label{:for => "name"} Name:
