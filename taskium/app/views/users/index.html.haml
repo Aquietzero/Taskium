@@ -1,0 +1,25 @@
+- if notice
+  %p#notice= notice
+
+%table.students
+  %tr.table-head
+    %th Student ID
+    %th Name
+    %th Email
+    %th group
+    %th role
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr.table-line
+      %td= user.student_id
+      %td= user.name
+      %td= user.email
+      %td
+        - if user.group
+          = user.group.name
+      %td= user.role
+      %td= link_to 'Show', user
+      %td= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete
+

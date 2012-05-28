@@ -6,12 +6,19 @@
   - @tasks.each do |task|
     .task
       .task-title
-        %h3= task.name
-      .task-updated= task.updated_at
+        %h2= link_to task.name, task
+        %span.deadline= "[Deadline: #{task.due.strftime('%Y %B, %d 00:00')}]"
+      .task-updated= task.updated_at.strftime('%A %B, %d')
       .task-requirement= task.requirement
+
       .tasks-comments
         - if @user
-          %p= link_to 'Add a comment', new_task_comment_path(task)
-        %p Comments:
+          %span.add-comment= link_to 'Add a comment', new_task_comment_path(task)
+          |
+        - if task.comments.length > 0
+          %span.comments-control= pluralize(task.comments.length, 'Comment')
+        - if task.comments.length == 0
+          %span No comments
+
         %ul.tasks-comments-list
           = render :partial => 'comments/comment', :collection => task.comments

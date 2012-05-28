@@ -43,5 +43,6 @@ comments_expandable = ->
   
     $(comments_control).click( ->
       $(this).next('.posts-comments-list').slideToggle()
+      $(this).next('.tasks-comments-list').slideToggle()
     )
 

@@ -1,0 +1,25 @@
+.post
+  .post-title
+    %h2= @post.title
+    %span.post-author
+      by #{@post.user.name}
+  .post-updated= "on #{@post.updated_at.strftime('%A %B, %d')}"
+  .post-content= @post.content
+  .post-category
+    %span.sub-title Category: 
+    = @post.category.name
+  .post-tags
+    %span.sub-title Tags: 
+    - @post.tags.each do |tag|
+      = tag.name 
+  .posts-comments
+    - if @user
+      %span.add-comment= link_to 'Add a comment', new_post_comment_path(@post)
+      |
+    - if @post.comments.length > 0
+      %span.comments-control= pluralize(@post.comments.length, 'Comment')
+    - if @post.comments.length == 0
+      %span No comments
+
+    %ul.posts-comments-list-in-show
+      = render :partial => 'comments/comment', :collection => @post.comments

@@ -1,20 +1,25 @@
-// Place all the styles related to the posts controller here.
+// Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $title-font-size: 18pt
 
-.post 
+.task
   padding: 30px 20px
-  margin: 10px
   background-color: #eee
+  margin: 10px
   border: dashed 1px #bbb
 
-  .post-title 
+  a
+    color: #666
+    &:hover
+      color: black
+
+  .task-title 
     h2 
-      display: inline
       font-size: $title-font-size
       color: #333
+      display: inline
       a
         color: #333
         font:
@@ -26,48 +31,30 @@ $title-font-size: 18pt
         &:hover
           color: black
 
-    .post-author
+    .deadline
+      color: #900
       font:
-        weight: normal 
-        style: italic 
-        size: 0.8em 
-      color: #666 
-      margin: 0
-      padding: 0
+        weight: bold
+        size: 1.1em
 
-  .post-updated
+  .task-updated
     text-align: right 
     color: #666 
 
-  .post-content
+  .task-requirement
     padding: 20px 
-
-  .post-category
-    font-style: italic 
-
-  .post-tags
-    font-style: italic 
-
-  .sub-title
-    font-style: normal
-    color: black
 
   .comments-control
     &:hover
       cursor: pointer
       color: black
 
-  .posts-comments
+  .tasks-comments
     text-align: right
 
-  .posts-comments-list
+  .tasks-comments-list
     display: none
 
-  .posts-comments-list-in-show
+  .tasks-comments-list-in-show
     display: block
 
-  .add-comment
-    a
-      color: #333
-      &:hover
-        color: black
