@@ -44,11 +44,13 @@
         %strong.menu-title TASKS 
         %ul.menu-items
           %li.menu-item= link_to 'View tasks', tasks_path
+          %li.menu-item= link_to 'Add task', new_task_path
 
       .sub-menu
         %strong.menu-title POSTS
         %ul.menu-items
           %li.menu-item= link_to 'View posts', posts_path
+          %li.menu-item= link_to 'Add post', new_post_path
    
     #main-content
       = yield

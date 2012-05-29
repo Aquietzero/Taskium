@@ -18,6 +18,9 @@ body
   background: #eee
   min-width: 1200px
 
+h1
+  padding: 10px 30px
+
 #header
   z-index: 100
   padding: 20px
@@ -36,10 +39,11 @@ body
 
     a 
       text-decoration: none
+      color: #333
 
       &:hover 
         background-color: transparent
-        color: #ccc
+        color: black
 
   .subtitle 
     color: #999
@@ -113,3 +117,37 @@ body
   min-height: 200px
   border-top: solid 1px #bbb
   text-shadow: 1px 0 1px white
+
+
+.normal-form
+  margin: 20px
+  padding: 10px
+  overflow: hidden
+
+  .field
+    margin: 10px auto
+
+  label
+    display: block
+    width: 150px
+    font-size: 1.2em
+    padding: 5px 0
+
+  textarea
+    width: 98%
+
+  input, textarea
+    border: solid 1px #ddd
+    padding: 5px
+    &:hover
+      box-shadow: 0 0 3px #ddd
+    &:focus
+      box-shadow: 0 0 3px #ddd
+
+  input[type='submit']
+    float: right
+    color: #333
+    background-color: #f6f6f6
+    &:hover
+      color: black
+      cursor: pointer
