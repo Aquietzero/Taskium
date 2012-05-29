@@ -1,29 +1,47 @@
 
-.grouper-list
-  %ul.grouper-file-tree-list
-    / The file tree of the directory of the current user.
-    %li.file-tree
-      = link_to "#{@user.name}",
-        homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{@user.student_id}",
-                       :student_id => @user.student_id),
-        :remote => true
-
-    %li
-      %ul{ :id => @user.student_id }
-
-    / The file tree of the directory of the corresponding grouper.
-    - @groupers.each do |grouper|
-      %li.file-tree
-        = link_to "#{grouper.name}",
-          homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
-                         :student_id => grouper.student_id),
+.homework-view-and-score
+  .grouper-list
+    %ul.grouper-file-tree-list
+      / The file tree of the directory of the current user.
+      %li.file-tree-title
+        = image_tag 'user.png'
+        = link_to "#{@user.name}",
+          homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{@user.student_id}",
+            :student_id => @user.student_id,
+            :task_id    => @task.id),
           :remote => true
-        = link_to "evaluate", homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
-
+  
       %li
-        %ul.file-tree{ :id => grouper.student_id }
+        %ul.file-tree{ :id => @user.student_id }
+  
+      / The file tree of the directory of the corresponding grouper.
+      - @groupers.each do |grouper|
+        %li.file-tree-title
+          = image_tag 'user.png'
+          = link_to "#{grouper.name}",
+            homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
+              :student_id => grouper.student_id,
+              :task_id    => @task.id),
+            :remote => true
+          = link_to image_tag('certificate.png'), 
+            homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
+  
+        %li
+          %ul.file-tree{ :id => grouper.student_id }
+  
+  #deploy-link-area
+    #deploy-link
+      = image_tag 'way.png'
+      = link_to "Deploy Link of #{@user.name}", 
+        "#{@task_id}/#{@student_id}/index.html"
 
-#evaluate-form
+    #zip-download
+      = image_tag 'zip.png'
+      %span Download Zip
 
-#source-code
-  %pre
+
+  #source-code
+    %pre
+      %h2 SOURCE CODE
+  
+  #evaluate-form

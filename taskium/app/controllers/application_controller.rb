@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     if @user 
       if @user.role == 'TEACHER' or @user.role == 'ADMIN'
         'admin_layout'
-      elsif @user.role == 'STUDENT'
+      elsif @user.role == 'STUDENT' or @user.role == 'MANAGER'
         'student_layout'
       end 
     else

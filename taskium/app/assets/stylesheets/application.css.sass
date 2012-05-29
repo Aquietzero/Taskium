@@ -21,6 +21,9 @@ body
 h1
   padding: 10px 30px
 
+pre, code
+  background-color: transparent
+
 #header
   z-index: 100
   padding: 20px
@@ -39,11 +42,11 @@ h1
 
     a 
       text-decoration: none
-      color: #333
+      color: #666
 
       &:hover 
         background-color: transparent
-        color: black
+        color: #888
 
   .subtitle 
     color: #999
@@ -121,8 +124,15 @@ h1
 
 .normal-form
   margin: 20px
-  padding: 10px
+  padding: 20px 40px
   overflow: hidden
+  border: dashed 1px #bbb
+  background-color: #eee
+
+  #close-form
+    float: right
+    &:hover
+      cursor: pointer
 
   .field
     margin: 10px auto
@@ -151,3 +161,44 @@ h1
     &:hover
       color: black
       cursor: pointer
+
+
+.normal-table
+  width: 80%
+  margin: 10px auto
+  text-align: center
+  border-collapse: collapse
+
+  img
+    width: 16px
+    vertical-align: middle 
+
+  a
+    color: #666
+    vertical-align: middle 
+    &:hover
+      color: black
+
+  tr.table-head
+    font-size: 1.2em
+
+  th
+    padding-bottom: 10px
+
+  tr.table-line, tr.hidden-line
+    border-top: solid 1px #ddd
+    &:hover
+      background-color: #eee
+
+  td
+    padding: 10px 20px
+    margin: 0
+
+  .hidden-line
+    display: none
+
+  .clickable
+    &:hover
+      text-shadow: 0 0 2px #ddd
+      cursor: pointer
+

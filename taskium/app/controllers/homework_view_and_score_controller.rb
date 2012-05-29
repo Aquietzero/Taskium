@@ -32,6 +32,7 @@ class HomeworkViewAndScoreController < ApplicationController
   def file_tree
     path = params[:path]
     @student_id = params[:student_id]
+    @task_id    = params[:task_id]
     @file_tree = []
 
     dir = Dir.open(path)

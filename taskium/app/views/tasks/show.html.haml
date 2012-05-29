@@ -2,6 +2,16 @@
   .task-title
     %h2= @task.name
     %span.deadline= "[Deadline: #{@task.due.strftime('%Y %B, %d 00:00')}]"
+
+    - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+      .task-operations
+        %span.task-operation
+          =image_tag 'writing.png'
+          = link_to 'edit', edit_task_path(@task)
+        %span.task-operation
+          =image_tag 'trash.png'
+          =link_to 'delete', @task, :confirm => 'Are you sure?', :method => :delete
+
   .task-updated= @task.updated_at.strftime('%A %B, %d')
   .task-requirement= @task.requirement
 

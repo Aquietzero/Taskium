@@ -7,8 +7,13 @@
           by #{post.user.name}
 
         - if @user == post.user or @user.role == 'TEACHER' or @user.role == 'ADMIN'
-          %span.post-operation= link_to 'edit', edit_post_path(post)
-          %span.post-operation= link_to 'delete', post, :confirm => 'Are you sure?', :method => :delete
+          .post-operations
+            %span.post-operation
+              =image_tag 'writing.png'
+              = link_to 'edit', edit_post_path(post)
+            %span.post-operation
+              =image_tag 'trash.png'
+              =link_to 'delete', post, :confirm => 'Are you sure?', :method => :delete
 
       .post-updated= "on #{post.updated_at.strftime('%A %B, %d')}"
       .post-content= post.content

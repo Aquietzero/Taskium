@@ -24,10 +24,15 @@
     .field
       = f.label 'Tags'
       %ul
-        - Tag.all.each do |tag|
-          %li
-            = check_box_tag 'tag_ids[]', tag.id
-            = tag.name 
+        - @tags.each do |tag|
+          - if @post.tags.include? tag
+            %li
+              = check_box_tag 'tag_ids[]', tag.id, true
+              = tag.name 
+          - if not @post.tags.include? tag
+            %li
+              = check_box_tag 'tag_ids[]', tag.id
+              = tag.name 
 
     .actions
       = f.submit

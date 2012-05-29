@@ -37,9 +37,27 @@ $title-font-size: 18pt
         weight: bold
         size: 1.1em
 
+    .task-operations
+      float: right
+      margin: 0
+      padding: 5px 10px
+      background-color: #ddd
+      border-radius: 30px
+      box-shadow: 0 0 3px #bbb inset
+
+      .task-operation
+        a
+          color: #666
+          &:hover
+            color: black
+        img
+          width: 16px
+          vertical-align: bottom
+
   .task-updated
+    padding-right: 10px
     text-align: right 
-    color: #666 
+    color: #999
 
   .task-requirement
     padding: 20px 

@@ -14,7 +14,7 @@
         / Shows the logout link only after the user has logged in.
         -if session[:user_id]
           %li#logout
-            = link_to "logout(#{@user.name})", logout_url
+            = link_to 'logout', logout_url
         / Shows the login link only before the user has logged in.
         - unless session[:user_id]
           %li#login
@@ -22,7 +22,7 @@
         / Shows the admin link only after the user has logged in.
         - if session[:user_id]
           %li#admin
-            = link_to "admin", admin_url
+            = link_to 'admin', admin_url
         / Shows the register link all the time.
         %li#register
           = link_to 'register', register_url

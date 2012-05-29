@@ -8,11 +8,12 @@ p, ol, ul, td {
   line-height: 18px; }
 
 pre {
-  background-color: #eee;
+  background-color: transparent;
   padding: 10px;
   font-size: 11px; }
 
 a {
+  vertical-align: bottom;
   text-decoration: none;
   &:visited {
     color: #999; }

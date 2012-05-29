@@ -1,35 +1,17 @@
 - if flash[:notice]
   %p= flash[:notice]
  
-.admin-functions
-  %b Userful Links
-  %ul
-    %li= link_to 'Add a post', new_post_path
-    - if @group_due_date.due_date > Time.now
-      %li= link_to 'Add a group', new_group_path 
-      %li= link_to 'View groups', groups_path
-    %li= link_to 'View tasks', tasks_path
-    %li= link_to 'Hand in Homework', new_homework_path
+%h2 Tasks on due
+%table.normal-table
+  - @tasks.each do |task|
+    %tr.table-line
+      %td.task-name= link_to task.name, task_path(task)
+      %td.task-due= task.due.strftime('%Y %B, %d 00:00')
+      %td.task-score= link_to 'Evaluate',
+        homework_view_and_score_path(:user => @user, :task => task)
 
-.groupers
-  %b Users in your Group
-  %ul
-    - if @groupers
-      - @groupers.each do |grouper|
-        %li= grouper.name 
-
-.tasks
-  %b Tasks on due
-  %ol.tasks
-    - @tasks.each do |task|
-      %li
-        %span.task-name= link_to task.name, task_path(task)
-        %span.task-due= "(#{task.due})"
-        %span.task-score= link_to 'Evaluate',
-          homework_view_and_score_path(:user => @user, :task => task)
-
+%h2 Handed-in Homeworks
 .homeworks
-  %b My Handed-in Homeworks
   %ul
     - @homeworks.each do |homework|
       %li

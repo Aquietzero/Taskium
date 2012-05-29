@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('updated_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
+    @tags = Tag.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @tags = Tag.all
   end
 
   # POST /posts

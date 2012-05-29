@@ -18,6 +18,7 @@ $ ->
   hljs.initHighlightingOnLoad()
   sidebar_hover_effect()
   comments_expandable()
+  groups_expandable()
 
 
 
@@ -44,5 +45,16 @@ comments_expandable = ->
     $(comments_control).click( ->
       $(this).next('.posts-comments-list').slideToggle()
       $(this).next('.tasks-comments-list').slideToggle()
+    )
+
+
+groups_expandable = ->
+
+  group_names = $('.normal-table .clickable')
+
+  for group_name in group_names
+
+    $(group_name).click( ->
+      $(this).parent().nextUntil('.table-line').slideToggle('fast')
     )
 

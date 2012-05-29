@@ -1,4 +1,12 @@
 
+// Set the deploy link
+$('#deploy-link').empty();
+$('#deploy-link').append(
+  '<%= image_tag 'way.png' %>' +
+  '<%= link_to "Deploy Link of #{User.find_by_student_id(@student_id).name}", 
+  "#{@task_id}/#{@student_id}/index.html" %>'
+);
+
 // Get the current file tree of a specific student.
 var current_file_tree = $('#<%= @student_id %>');
 
@@ -9,6 +17,7 @@ current_file_tree.empty();
   <% if tree_item[:type] == 'dir' %>
       current_file_tree.append(
         '<li>' + 
+        '<%= image_tag 'folder.png' %>' +
         '<%= link_to tree_item[:name], homework_view_and_score_file_tree_path(
             :path => tree_item[:path], 
             :student_id => @student_id
@@ -22,6 +31,7 @@ current_file_tree.empty();
   <% if tree_item[:type] == 'file' %>
       current_file_tree.append(
         '<li>' + 
+        '<%= image_tag 'file.png' %>' +
         '<%= link_to tree_item[:name], homework_view_and_score_show_source_path(
             :path => tree_item[:path]
           ), 
@@ -30,3 +40,26 @@ current_file_tree.empty();
       );
   <% end %>
 <% end %>
+
+
+file_tree_hover_effect = (function() {
+
+  var links = $('.file-tree li a');
+
+  for(var i = 0; i < links.length; ++i) {
+
+    var link = links[i];
+    $(link).hover(function() { 
+      $(this).parent().css({
+        'backgroundColor':'#eee',
+        'box-shadow':'2px 5px 5px rgba(150, 150, 150, 0.2) inset'
+      });
+    }, function(){ 
+      $(this).parent().css({
+        'backgroundColor':'#eee',
+        'box-shadow':'0 0 0 #eee inset'
+      });
+    })
+
+  }
+})();

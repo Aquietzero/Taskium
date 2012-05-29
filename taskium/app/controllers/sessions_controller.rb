@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       user = User.find(user.id)
       redirect_to admin_url if user.role == 'TEACHER' or user.role == 'ADMIN'
-      redirect_to student_admin_url if user.role == 'STUDENT'
+      redirect_to student_admin_url if user.role == 'STUDENT' or user.role == 'MANAGER'
     else
       redirect_to login_url, :alert => "Invalid name/password combination!"
     end 

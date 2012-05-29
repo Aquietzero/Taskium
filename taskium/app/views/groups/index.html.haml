@@ -1,0 +1,52 @@
+%h1 groups
+
+- if flash[:notice]
+  %p= flash[:notice]
+
+%table.normal-table
+  %tr.table-head
+    %th Name
+    %th Manager
+    %th Student ID
+    %th Email
+
+    - if @user.role == 'MANAGER' or @user.role == 'TEACHER' or @user.role == 'ADMIN'
+      %th
+      %th
+
+    - if @user.role == 'STUDENT'
+      %th
+      %th
+
+  - @groups.each do |group|
+    %tr.table-line
+      %td.clickable= group.name
+      %td= get_manager(group).name
+      %td= get_manager(group).student_id
+      %td= get_manager(group).email
+
+      - if @user.role == 'MANAGER' or @user.role == 'TEACHER' or @user.role == 'ADMIN'
+        %td
+          = image_tag 'writing.png'
+          = link_to 'Edit', edit_group_path(group)
+        %td
+          = image_tag 'trash.png'
+          = link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete
+
+      - if @user.role == 'STUDENT'
+        %td
+          = image_tag 'plus.png'
+          = link_to 'Join', :controller => 'groups', :action => 'join', :id => group
+        %td
+          = image_tag 'less.png'
+          = link_to 'Quit', :controller => 'groups', :action => 'quit', :id => group
+          
+    - group.users.each do |user|
+      - if user.role != 'MANAGER'
+        %tr.hidden-line
+          %td
+          %td= user.name
+          %td= user.student_id
+          %td= user.email
+          %td
+          %td

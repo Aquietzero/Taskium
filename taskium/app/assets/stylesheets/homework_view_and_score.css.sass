@@ -2,5 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.grouper-file-tree-list
-  list-style-type: none
+.homework-view-and-score
+  
+  ul
+    list-style-type: none
+    padding: 0 0 0 10px
+    margin: 0
+
+  img
+    width: 16px
+    padding: 0 2px
+    vertical-align: top
+
+  li
+    list-style-type: none
+    padding-left: 10px
+
+  a
+    color: #333
+    &:hover
+      color: black
+
+    img
+      width: 24px
+      float: right
+      vertical-align: bottom 
+
+  pre
+    h2
+      color: #ddd
+      font-size: 30pt
+      text-align: center
+
+  .grouper-file-tree-list
+    position: fixed
+    right: 0
+    width: 200px
+    margin: -40px 0 0 0
+    padding: 0
+
+    .file-tree-title
+      z-index: 100
+      color: #666
+      font-size: 1.2em
+      font-weight: bold
+      font-family: sans-serif
+      margin: 10px 0 0 0 
+      padding: 10px 20px
+      background-color: #f6f6f6
+      box-shadow: 0 0 5px #ddd
+      border:
+        left:   solid 1px #ddd
+        top:    solid 1px #ddd
+        bottom: solid 1px #ddd
+      a
+        color: #333
+        &:hover
+          color: black
+
+    .file-tree
+      li
+        z-index: 0
+        border-left:   solid 1px #ddd
+        border-bottom: solid 1px #ddd
+        padding: 5px 10px
+        margin: 0
+        a
+          color: #666
+          &:hover
+            color: black
+
+  #deploy-link-area
+    border: solid 1px #ddd
+    margin: 15px
+    padding: 10px 20px
+    background-color: #f6f6f6
+    box-shadow: 0 0 5px #ddd inset
+    overflow: hidden
+
+    #deploy-link
+      display: inline
+
+    #zip-download
+      float: right
+      display: inline
+    
+  #source-code
+    width: 95%
+    overflow-x: hidden 
+    margin: 20px auto
+    padding-left: 10px
+    border: dashed 1px #bbb
+
+
+  .normal-form
+    padding: 20px 40px
+    border-radius: 5px
+    border: solid 1px #bbb
+    background-color: rgba(255, 255, 255, 0.8)
