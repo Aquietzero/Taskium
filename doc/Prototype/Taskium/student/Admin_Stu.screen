@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="22" y="2" width="715" height="623" text="Browser&#xA;http://..." measuredWidth="715" measuredHeight="623"/>
+  <widgets xsi:type="model:Group" id="3" x="204" y="159" width="479" height="98" text="Lastest News" measuredWidth="479" measuredHeight="98">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="4" x="204" y="264" width="479" height="329" text="Homework" measuredWidth="479" measuredHeight="329">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="5" x="48" y="520" width="147" height="73" text="Group News" measuredWidth="147" measuredHeight="73">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="7" x="48" y="159" width="147" height="354" text="Function choices" measuredWidth="147" measuredHeight="354">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="8" x="22" y="54" width="715" height="75" measuredWidth="715" measuredHeight="75">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="9" x="32" y="63" text="Taskium" measuredWidth="163" measuredHeight="57">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="11" x="558" y="80" text="Register, Admin, Log Out" measuredWidth="169" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="49" height="23" text="Register"/>
+    <items x="67" y="0" width="37" height="23" text="Admin"/>
+    <items x="122" y="0" width="46" height="23" text="Log Out"/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="12" x="204" y="281" width="479" height="88" measuredWidth="479" measuredHeight="88">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="13" x="214" y="289" width="283" height="49" text="Homework 1" measuredWidth="283" measuredHeight="49">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="14" x="517" y="302" text="View, HandIn, Updata" measuredWidth="147" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="29" height="23" text="View"/>
+    <items x="47" y="0" width="40" height="23" text="HandIn"/>
+    <items x="105" y="0" width="41" height="23" text="Updata"/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="15" x="204" y="368" width="479" height="88" measuredWidth="479" measuredHeight="88">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="16" x="214" y="378" width="283" height="49" text="Homework 2" measuredWidth="283" measuredHeight="49">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="18" x="517" y="391" text="View, HandIn, Updata" measuredWidth="147" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="29" height="23" text="View"/>
+    <items x="47" y="0" width="40" height="23" text="HandIn"/>
+    <items x="105" y="0" width="41" height="23" text="Updata"/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="21" x="113" y="184" text="Edit Profile" measuredWidth="65" measuredHeight="23" link="EditProfile_Stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="22" x="101" y="216" text="Create Group" measuredWidth="77" measuredHeight="23" link="CreateGroup_stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="23" x="113" y="248" text="Join Group" measuredWidth="63" measuredHeight="23" link="JoinGroup_stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="24" x="113" y="281" text="Quit Group" measuredWidth="64" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="25" x="72" y="313" text="Hand In Homework" measuredWidth="106" measuredHeight="23" link="HandIn_stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="26" x="118" y="348" text="Evaluate" measuredWidth="50" measuredHeight="23" link="EvaluateHomework_stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="27" x="56" y="378" text="View Evaluation result" measuredWidth="125" measuredHeight="23" link="EvaluateHomework_stu.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="28" x="214" y="337" width="355" height="24" text="show who has handed in the homework in your group" measuredWidth="355" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="29" x="214" y="426" width="355" height="24" text="show who has handed in the homework in your group" measuredWidth="355" measuredHeight="24">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextArea" id="31" x="48" y="537" width="147" height="56" text="show who&#xA;join or quit &#xA;the group, etc" measuredWidth="147" measuredHeight="56">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="32" x="72" y="417" text="View recent hwURL" measuredWidth="111" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
