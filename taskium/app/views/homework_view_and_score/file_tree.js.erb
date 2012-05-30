@@ -8,6 +8,11 @@ $('#deploy-link').append(
 );
 
 // Get the current file tree of a specific student.
+// Empty file trees no matter it has been expanded or not.
+var file_trees = $('.file-tree');
+for (var i = 0; i < file_trees.length; ++i)
+  $(file_trees[i]).empty();
+
 var current_file_tree = $('#<%= @student_id %>');
 
 current_file_tree.empty();
@@ -20,7 +25,8 @@ current_file_tree.empty();
         '<%= image_tag 'folder.png' %>' +
         '<%= link_to tree_item[:name], homework_view_and_score_file_tree_path(
             :path => tree_item[:path], 
-            :student_id => @student_id
+            :student_id => @student_id,
+            :task_id => @task_id
           ), 
         :remote => true %>' +
         '</li>'

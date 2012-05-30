@@ -1,16 +1,31 @@
 - if flash[:notice]
   %p= flash[:notice]
  
-%h2 Tasks on due
+%h1 Tasks on due
 %table.normal-table
+  %tr.table-head
+    %th Task
+    %th Due date
+    %th Final Score
+    %th
+    %th
+
   - @tasks.each do |task|
     %tr.table-line
       %td.task-name= link_to task.name, task_path(task)
-      %td.task-due= task.due.strftime('%Y %B, %d 00:00')
-      %td.task-score= link_to 'Evaluate',
+      %td.task-due
+        - if task.due > Time.now
+          = task.due.strftime('%Y %B, %d 00:00')
+        - if task.due < Time.now
+          %span.dued Dued
+      %td.task-score
+        - if get_final_score(@user, task)
+          = get_final_score(@user, task)
+      %td.task-score= link_to image_tag('camera.png'),
         homework_view_and_score_path(:user => @user, :task => task)
+      %td.hand-in= link_to image_tag('cloud_up.png'), new_homework_path(:task_id => task.id)
 
-%h2 Handed-in Homeworks
+%h1 Handed-in Homeworks
 .homeworks
   %ul
     - @homeworks.each do |homework|

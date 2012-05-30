@@ -9,7 +9,8 @@
 
   .field
     = f.label :task_id
-    = select('homework', 'task_id', @tasks.collect {|t| [t.name, t.id] })
+    = select('homework', 'task_id', @tasks.collect {|t| [t.name, t.id]})
+    //= select('homework', 'task_id', [[@task.name, @task.id]])
   .field
     = f.label 'Attach file'
     = f.file_field :file

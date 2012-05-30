@@ -1,7 +1,7 @@
 class HomeworksController < ApplicationController
 
   layout :set_layout
-  before_filter :get_tasks
+  before_filter :get_tasks, :only => [:new]
 
   # GET /homeworks
   # GET /homeworks.json
@@ -30,6 +30,7 @@ class HomeworksController < ApplicationController
   def new
     # Only shows the homeworks which are still within the due.
     @homework = Homework.new
+    # @task = Task.find(params[:task_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,13 +47,12 @@ class HomeworksController < ApplicationController
   # POST /homeworks.json
   def create
     @homework = Homework.new(params[:homework])
-    user = User.find(session[:user_id])
+    @homework.user = User.find(session[:user_id])
 
-    @homework.user = user
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
-        format.json { render json: @homework, status: :created, location: @homework }
+        format.html { redirect_to student_admin_url, notice: 'Homework was successfully created.' }
+        format.json { render json: student_admin_url, status: :created, location: @homework }
       else
         format.html { render action: "new" }
         format.json { render json: @homework.errors, status: :unprocessable_entity }
@@ -90,7 +90,6 @@ class HomeworksController < ApplicationController
 
   protected
   def get_tasks
-    now = Time.new
-    @tasks = Task.all.select {|task| task.due > now}
+    @tasks = Task.all.select {|task| task.due > Time.now}
   end
 end

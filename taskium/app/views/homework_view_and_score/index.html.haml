@@ -23,8 +23,9 @@
               :student_id => grouper.student_id,
               :task_id    => @task.id),
             :remote => true
-          = link_to image_tag('certificate.png'), 
-            homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
+          - if @task.due > Time.now and get_homework(grouper, @task)
+            = link_to image_tag('certificate.png'), 
+              homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
   
         %li
           %ul.file-tree{ :id => grouper.student_id }
