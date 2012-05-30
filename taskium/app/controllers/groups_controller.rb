@@ -108,7 +108,7 @@ class GroupsController < ApplicationController
 
     unless user.group
       @group.users << user
-      redirect_to admin_url, :notice => "You successfully joined group #{@group.name}"
+      redirect_to groups_url, :notice => "You successfully joined group #{@group.name}"
     else
       redirect_to groups_url, :notice => "You are already in group #{user.group.name}"
     end
@@ -122,7 +122,7 @@ class GroupsController < ApplicationController
 
     # Make sure the user is in the group.
     unless user.group_id == @group.id
-      redirect_to admin_url, :notice => "You are not in group #{@group.name}."
+      redirect_to student_admin_url, :notice => "You are not in group #{@group.name}."
     else
       # If the manager of a group dismisses the group, then the group is deleted.
       if user.role == 'MANAGER'
@@ -130,10 +130,10 @@ class GroupsController < ApplicationController
           user.update_attributes(:group_id => nil, :role => 'STUDENT')
         end
         @group.destroy
-        redirect_to admin_url, :notice => "Group #{@group.name} has been successfully dismissed."
+        redirect_to student_admin_url, :notice => "Group #{@group.name} has been successfully dismissed."
       else
         user.update_attributes(:group_id => nil, :role => 'STUDENT')
-        redirect_to admin_url, :notice => "You have successfully quited #{@group.name}."
+        redirect_to student_admin_url, :notice => "You have successfully quited #{@group.name}."
       end 
     end
   end 

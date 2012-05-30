@@ -1,0 +1,20 @@
+$('#homework-handin').html('<%= j render 'form' %>');
+
+var homework_handin = $('#homework-handin');
+
+var w = 500;
+var h = 500;
+
+$(homework_handin).width(w + 'px');
+$(homework_handin).height(h + 'px');
+
+$(homework_handin).css({
+  position: 'fixed',
+  top  : $(window).height()/2 - h/2 + 'px',
+  left : $(window).width()/2 - w/2 + 'px'
+});
+$(homework_handin).show();
+
+$('#close-form').click(function() {
+  $(homework_handin).hide();
+})

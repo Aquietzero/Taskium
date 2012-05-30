@@ -21,11 +21,17 @@ class Homework < ActiveRecord::Base
     self.url = "#{self.file_pack}/index.html"
   end
 
-  # After saving the file into the database, deploy the file to the set
-  # path and unzip it.
   def write_file
+    # Delete the directory first
+    if File.directory? @path
+      delete_homework_file
+    end 
+
+    # Create a directory and copy .zip file in it.
     Dir.mkdir(@path) unless File.directory? @path
     File.open("#{@path}/#{@filename}", "wb") { |f| f.write(@file.read) }
+
+    # Unzip the file
     unzip_file(File.join(@path, @filename), File.join(@path))
   end
 

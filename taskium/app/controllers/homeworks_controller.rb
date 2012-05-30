@@ -34,7 +34,8 @@ class HomeworksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @homework }
+      format.js   # new.js.erb
+      # format.json { render json: @homework }
     end
   end
 
@@ -47,12 +48,16 @@ class HomeworksController < ApplicationController
   # POST /homeworks.json
   def create
     @homework = Homework.new(params[:homework])
-    @homework.user = User.find(session[:user_id])
+    user = User.find(session[:user_id])
+    @homework.user = user
+
+    homework = user.homeworks.find_by_task_id(@homework[:task_id])
+    homework.destroy if homework
 
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
-        format.json { render json: @homework, status: :created, location: @homework }
+        format.html { redirect_to student_admin_url, notice: 'Homework was successfully handed in.' }
+        format.json { render json: student_admin_url, status: :created, location: @homework }
       else
         format.html { render action: "new" }
         format.json { render json: @homework.errors, status: :unprocessable_entity }

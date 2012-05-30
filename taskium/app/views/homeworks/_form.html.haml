@@ -1,18 +1,22 @@
 = form_for(@homework, :html => { :multipart => true }) do |f| 
-  - if @homework.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@homework.errors.count, "error") 
-        prohibited this homework from being saved:
-      = @homework.errors.full_messages.each do |msg|
-        %li= msg 
+  .normal-form
+    
+    #close-form= image_tag 'back.png'
 
-  .field
-    = f.label :task_id
-    /= select('homework', 'task_id', @tasks.collect {|t| [t.name, t.id]})
-    = select('homework', 'task_id', [[@task.name, @task.id]])
-  .field
-    = f.label 'Attach file'
-    = f.file_field :file_pack
-  .actions
-    = f.submit 
+    - if @homework.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@homework.errors.count, "error") 
+          prohibited this homework from being saved:
+        = @homework.errors.full_messages.each do |msg|
+          %li= msg 
+
+    .field
+      = f.label :task_id
+      /= select('homework', 'task_id', @tasks.collect {|t| [t.name, t.id]})
+      = select('homework', 'task_id', [[@task.name, @task.id]])
+    .field
+      = f.label 'Attach file'
+      = f.file_field :file_pack
+    .actions
+      = f.submit 
