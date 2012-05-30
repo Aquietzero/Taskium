@@ -30,7 +30,7 @@ class HomeworksController < ApplicationController
   def new
     # Only shows the homeworks which are still within the due.
     @homework = Homework.new
-    # @task = Task.find(params[:task_id])
+    @task = Task.find(params[:task_id])
 
     respond_to do |format|
       format.html # new.html.erb

@@ -9,14 +9,8 @@
     %th Manager
     %th Student ID
     %th Email
-
-    - if @user.role == 'MANAGER' or @user.role == 'TEACHER' or @user.role == 'ADMIN'
-      %th
-      %th
-
-    - if @user.role == 'STUDENT'
-      %th
-      %th
+    %th
+    %th
 
   - @groups.each do |group|
     %tr.table-line
@@ -24,22 +18,20 @@
       %td= get_manager(group).name
       %td= get_manager(group).student_id
       %td= get_manager(group).email
-
-      - if @user.role == 'MANAGER' or @user.role == 'TEACHER' or @user.role == 'ADMIN'
-        %td
-          = image_tag 'writing.png'
-          = link_to 'Edit', edit_group_path(group)
-        %td
-          = image_tag 'trash.png'
-          = link_to 'Destroy', group, confirm: 'Are you sure?', method: :delete
-
-      - if @user.role == 'STUDENT'
-        %td
-          = image_tag 'plus.png'
-          = link_to 'Join', :controller => 'groups', :action => 'join', :id => group
-        %td
-          = image_tag 'less.png'
-          = link_to 'Quit', :controller => 'groups', :action => 'quit', :id => group
+      %td
+        - if @user.role == 'MANAGER' and @user.group == group
+          = link_to image_tag('writing.png'), edit_group_path(group)
+        - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+          = link_to image_tag('writing.png'), edit_group_path(group)
+        - if @user.role == 'STUDENT' and not @user.group
+          = link_to image_tag('plus.png'), :controller => 'groups', :action => 'join', :id => group
+      %td
+        - if @user.role == 'MANAGER' and @user.group == group
+          = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
+        - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+          = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
+        - if @user.role == 'STUDENT' and @user.group and @user.group == group
+          = link_to image_tag('less.png'), :controller => 'groups', :action => 'quit', :id => group
           
     - group.users.each do |user|
       - if user.role != 'MANAGER'

@@ -33,12 +33,19 @@
   #deploy-link-area
     #deploy-link
       = image_tag 'way.png'
-      = link_to "Deploy Link of #{@user.name}", 
-        "#{@task_id}/#{@student_id}/index.html"
+      - if @homework
+        = link_to "Deploy Link of #{@user.name}", 
+          "#{@task.id}/#{@user.student_id}/#{@homework.url}"
+      - if not @homework
+        %span.warning You haven't handin the homework.
 
     #zip-download
       = image_tag 'zip.png'
-      %span Download Zip
+      - if @homework
+        = link_to "Download", 
+          "#{@task.id}/#{@user.student_id}/#{@homework.file_pack}.zip"
+
+
 
 
   #source-code

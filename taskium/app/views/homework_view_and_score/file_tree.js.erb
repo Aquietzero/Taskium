@@ -4,7 +4,15 @@ $('#deploy-link').empty();
 $('#deploy-link').append(
   '<%= image_tag 'way.png' %>' +
   '<%= link_to "Deploy Link of #{User.find_by_student_id(@student_id).name}", 
-  "#{@task_id}/#{@student_id}/index.html" %>'
+  "#{@task_id}/#{@student_id}/#{@homework.url}" %>'
+);
+
+// Set the download link
+$('#zip-download').empty();
+$('#zip-download').append(
+  '<%= image_tag 'zip.png' %>' +
+  '<%= link_to "Download", 
+  "#{@task_id}/#{@student_id}/#{@homework.file_pack}.zip" %>'
 );
 
 // Get the current file tree of a specific student.

@@ -5,6 +5,7 @@ class HomeworkViewAndScoreController < ApplicationController
   def index
     @user = User.find(params[:user])
     @task = Task.find(params[:task])
+    @homework = @user.homeworks.find_by_task_id(@task.id)
 
     # If the user doesn't belongs to any group, then @group will be undefined.
     if @user.group
@@ -33,6 +34,7 @@ class HomeworkViewAndScoreController < ApplicationController
     path = params[:path]
     @student_id = params[:student_id]
     @task_id    = params[:task_id]
+    @homework   = User.find_by_student_id(@student_id).homeworks.find_by_task_id(@task_id)
     @file_tree = []
 
     dir = Dir.open(path)
