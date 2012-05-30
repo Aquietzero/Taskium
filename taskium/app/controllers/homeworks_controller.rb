@@ -51,8 +51,8 @@ class HomeworksController < ApplicationController
 
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to student_admin_url, notice: 'Homework was successfully created.' }
-        format.json { render json: student_admin_url, status: :created, location: @homework }
+        format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
+        format.json { render json: @homework, status: :created, location: @homework }
       else
         format.html { render action: "new" }
         format.json { render json: @homework.errors, status: :unprocessable_entity }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526030958) do
+ActiveRecord::Schema.define(:version => 20120530070154) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -64,10 +64,11 @@ ActiveRecord::Schema.define(:version => 20120526030958) do
     t.integer  "user_id"
     t.integer  "group_rank"
     t.integer  "final_rank"
+    t.integer  "final_score"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "file"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "file_pack"
   end
 
   create_table "posts", :force => true do |t|
