@@ -15,21 +15,22 @@
         %ul.file-tree{ :id => @user.student_id }
   
       / The file tree of the directory of the corresponding grouper.
-      - @groupers.each do |grouper|
-        %li.file-tree-title
-          = image_tag 'user.png'
-          = link_to "#{grouper.name}",
-            homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
-              :student_id => grouper.student_id,
-              :task_id    => @task.id),
-            :remote => true
-          - if @task.due > Time.now and get_homework(grouper, @task)
-            = link_to image_tag('certificate.png'), 
-              homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
+      - if @grouper
+        - @groupers.each do |grouper|
+          %li.file-tree-title
+            = image_tag 'user.png'
+            = link_to "#{grouper.name}",
+              homework_view_and_score_file_tree_path(:path => "#{::Rails.root}/public/#{@task.id}/#{grouper.student_id}",
+                :student_id => grouper.student_id,
+                :task_id    => @task.id),
+              :remote => true
+            - if @task.due > Time.now and get_homework(grouper, @task)
+              = link_to image_tag('certificate.png'), 
+                homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
   
         %li
           %ul.file-tree{ :id => grouper.student_id }
-  
+
   #deploy-link-area
     #deploy-link
       = image_tag 'way.png'
