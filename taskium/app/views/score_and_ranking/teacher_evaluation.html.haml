@@ -1,0 +1,41 @@
+%h1= @task.name
+
+%table.normal-table
+  - @groups.each do |group|
+    %tr.table-special-line
+      %td.table-strong-cell
+        = group.name
+      %td.table-special-cell
+        [
+        source
+        = link_to image_tag('camera.png'), homework_view_and_score_path(:user => group.users.first, :task => @task)
+        ]
+      %td
+      %td
+      %td
+      %td.table-middle-cell 
+        %strong Group Rank
+      %td.table-middle-cess
+        %strong Final Score
+
+    - group.users.each do |user|
+      %tr.table-line
+        %td= user.student_id
+        %td= user.name
+        %td
+          - if get_homework(user, @task)
+            = link_to image_tag('way.png'), get_deploy_link(user, @task)
+        %td
+          - if get_homework(user, @task)
+            = link_to image_tag('zip.png'), get_download_link(user, @task)
+        %td
+          - if get_homework(user, @task)
+            = link_to image_tag('certificate.png'), 
+              homework_view_and_score_teacher_evaluate_path(:grouper => user, :task => @task), :remote => true
+        %td.table-middle-cell= get_group_rank(user, @task)
+        %td.table-middle-cell
+          - if get_homework(user, @task) and get_homework(user, @task).finalscore
+            = get_homework(user, @task).finalscore.score
+         
+
+  #evaluate-form

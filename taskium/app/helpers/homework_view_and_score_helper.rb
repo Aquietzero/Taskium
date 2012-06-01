@@ -5,4 +5,9 @@ module HomeworkViewAndScoreHelper
     end
     nil
   end
+
+  def is_current_user_teacher
+    user = User.find(session[:user_id])
+    user.role == 'TEACHER' or user.role == 'ADMIN'
+  end
 end

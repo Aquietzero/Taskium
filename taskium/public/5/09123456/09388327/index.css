@@ -1,0 +1,13 @@
+body {
+    background-color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    color: blue;
+}
+
+p {
+    font-style: italic;
+}

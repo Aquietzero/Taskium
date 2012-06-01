@@ -166,7 +166,7 @@ pre, code
 .normal-table
   width: 80%
   margin: 10px auto
-  text-align: center
+  text-align: left 
   border-collapse: collapse
 
   img
@@ -190,6 +190,21 @@ pre, code
     &:hover
       background-color: #eee
 
+  tr.table-sub-line
+    td
+      font-style: italic
+      text-align: left 
+      padding: 3px 30px
+      img
+        width: 16px
+
+    td.content
+      text-align: left
+
+  tr.table-special-line
+    background-color: #e6e6e6
+    border: dashed 1px #bbb
+
   td
     padding: 10px 20px
     margin: 0
@@ -202,3 +217,42 @@ pre, code
       text-shadow: 0 0 2px #ddd
       cursor: pointer
 
+  .table-special-cell
+    font-weight: normal
+    font-size: 0.8em
+    vertical-align: bottom
+    img
+      vertical-align: bottom
+
+  .table-strong-cell
+    font-weight: bold
+    font-size: 1.2em
+    padding-left: 10px
+
+  .table-middle-cell
+    text-align: center
+
+.submit-button
+  float: right
+  border: solid 1px #ddd
+  padding: 10px 20px
+  margin: 30px 85px
+  background-color: #eee
+  &:hover
+    box-shadow: 0 0 3px #ddd
+
+  a
+    color: #666
+    &:hover
+      color: black
+
+#evaluate-form
+  .normal-form
+    padding: 20px 40px
+    border-radius: 5px
+    border: solid 1px #bbb
+    background-color: rgba(255, 255, 255, 0.8)
+    box-shadow: 0 3px 10px #666
+
+    img
+      width: 24px

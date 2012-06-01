@@ -26,6 +26,9 @@
       %td.hand-in
         - if task.due > Time.now
           = link_to image_tag('cloud_up.png'), new_homework_path(:task_id => task.id), :remote => true
+      %td
+        - if @user.role == 'MANAGER' and task.due > Time.now
+          = link_to image_tag('notepad.png'), manager_evaluation_path(:task_id => task.id)
 
 #homework-handin
 

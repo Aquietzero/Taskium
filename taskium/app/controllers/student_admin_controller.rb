@@ -5,7 +5,7 @@ class StudentAdminController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     @homeworks = @user.homeworks
-    @tasks = Task.all
+    @tasks = Task.order('due DESC')
 
     if @user.group
       @groupers = @user.group.users.select {|user| user.id != @user.id}

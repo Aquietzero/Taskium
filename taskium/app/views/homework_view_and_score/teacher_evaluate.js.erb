@@ -1,0 +1,22 @@
+$('#evaluate-form').html(
+  '<%= j render :partial => 'finalscore_form', :local => {:grouper => @grouper, :task => @task} %>'
+);
+
+var evaluate_form = $('#evaluate-form');
+
+var w = 500;
+var h = 500;
+
+$(evaluate_form).width(w + 'px');
+$(evaluate_form).height(h + 'px');
+
+$(evaluate_form).css({
+  position: 'fixed',
+  top  : $(window).height()/2 - h/2 + 'px',
+  left : $(window).width()/2 - w/2 + 'px'
+});
+$(evaluate_form).show();
+
+$('#close-form').click(function() {
+  $(evaluate_form).hide();
+})

@@ -1,0 +1,17 @@
+= form_for(@finalscore, 
+  :url => homework_view_and_score_teacher_evaluated_path(:grouper => @grouper, :task => @task), 
+  :remote => true) do |f|
+
+  .normal-form
+    #close-form= image_tag 'back.png'
+
+    .field
+      = f.label :score
+      = f.number_field :score
+
+    .field
+      = f.label :explanation
+      = f.text_area :explanation
+
+    .actions
+      = f.submit

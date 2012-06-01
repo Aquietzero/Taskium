@@ -10,6 +10,12 @@ Taskium::Application.routes.draw do
     get 'forbid_group_operation' => :forbid_now
   end
 
+  controller :score_and_ranking do
+    get 'manager_evaluation' => :manager_evaluation
+    get 'teacher_evaluation' => :teacher_evaluation
+    get 'calculate_group_rank' => :calculate_group_rank 
+  end
+
   resources :homeworks
 
   controller :homework_view_and_score do
@@ -18,6 +24,8 @@ Taskium::Application.routes.draw do
     get 'homework_view_and_score/file_tree' => :file_tree
     get 'homework_view_and_score/evaluate'  => :evaluate
     post 'homework_view_and_score/evaluated'  => :evaluated
+    get 'homework_view_and_score/teacher_evaluate'  => :teacher_evaluate
+    post 'homework_view_and_score/teacher_evaluated'  => :teacher_evaluated
   end
 
   resources :groups

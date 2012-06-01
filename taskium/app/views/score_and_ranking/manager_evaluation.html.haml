@@ -1,0 +1,42 @@
+%h1 
+  = link_to image_tag('camera.png'), homework_view_and_score_path(:user => @user, :task => @task)
+  =@task.name
+
+%table.normal-table
+  %tr.table-head
+    %th Student
+    %th ID
+    %th Deploy
+    %th Rank
+
+  - @groupers.each do |grouper|
+    %tr.table-special-line
+      %td= grouper.name
+      %td= grouper.student_id
+      %td
+        - if get_homework(grouper, @task)
+          = link_to image_tag('way.png'), "#{@task.id}/#{grouper.student_id}/#{get_homework(grouper, @task).url}"
+      %td
+        - if get_homework(grouper, @task)
+          = get_homework(grouper, @task).group_rank
+
+    - if get_homework(grouper, @task)
+      - get_homework(grouper, @task).groupscores.each do |score|
+        %tr.table-sub-line
+          %td
+            = image_tag 'user.png'
+            = score.user.name
+          %td
+            - if score.score >= 90
+              = image_tag 'smile.png'
+            - if score.score >= 80 and score.score < 90
+              = image_tag 'cry.png'
+            - if score.score < 80
+              = image_tag 'angry.png'
+            = score.score
+          %td.content
+            = image_tag 'blog.png'
+            = score.explanation
+
+.submit-button
+  = link_to 'Submit Evaluation Result', calculate_group_rank_path(:task_id => @task.id)

@@ -1,19 +1,33 @@
 - if flash[:notice]
   %p= flash[:notice]
  
-%p Groups Managerment
-%ul
-  %li= link_to 'View the groups', groups_path
-  %li= link_to 'Set group operation due time', edit_group_due_date_path(@group_due_date)
-  %li= link_to 'Forbid group operation now', forbid_group_operation_path
+%h1 Tasks
+%table.normal-table
+  %tr.table-head
+    %th Task
+    %th Due date
+    %th
+    %th
+    %th
 
-%p Students Managerment
-%ul
-  %li= link_to 'View the students', users_path
+  - @tasks.each do |task|
+    %tr.table-line
+      %td.task-name= link_to task.name, task_path(task)
+      %td.task-due
+        - if task.due > Time.now
+          = task.due.strftime('%Y %B, %d 00:00')
+        - if task.due < Time.now
+          %span.dued Dued
+      / Update the un-dued homework.
+      %td
+        - if task.due > Time.now
+          = link_to image_tag('writing.png'), edit_task_path(task)
+      / Delete the un-dued homework.
+      %td
+        - if task.due > Time.now
+          = link_to image_tag('trash.png'), task, :confirm => 'Are you sure?', :method => :delete
+      / Evaluate the dued homework.
+      %td
+        - if task.due < Time.now
+          = link_to image_tag('ok.png'), teacher_evaluation_path(:task_id => task.id)
 
-%p Tasks Managerment
-%ul
-  %li= link_to 'View the tasks', tasks_path
-
-
-#main-container

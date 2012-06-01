@@ -10,12 +10,16 @@
             :student_id => @user.student_id,
             :task_id    => @task.id),
           :remote => true
+        / Final score form trigger button
+        - if is_current_user_teacher
+          = link_to image_tag('certificate.png'),
+            homework_view_and_score_teacher_evaluate_path(:grouper => @user, :task => @task), :remote => true
   
       %li
         %ul.file-tree{ :id => @user.student_id }
   
       / The file tree of the directory of the corresponding grouper.
-      - if @grouper
+      - if @groupers
         - @groupers.each do |grouper|
           %li.file-tree-title
             = image_tag 'user.png'
@@ -24,12 +28,17 @@
                 :student_id => grouper.student_id,
                 :task_id    => @task.id),
               :remote => true
+            / Group score form trigger button
             - if @task.due > Time.now and get_homework(grouper, @task)
               = link_to image_tag('certificate.png'), 
                 homework_view_and_score_evaluate_path(:grouper => grouper, :task => @task), :remote => true
+            / Final score form trigger button
+            - if is_current_user_teacher
+              = link_to image_tag('certificate.png'), 
+                homework_view_and_score_teacher_evaluate_path(:grouper => grouper, :task => @task), :remote => true
   
-        %li
-          %ul.file-tree{ :id => grouper.student_id }
+          %li
+            %ul.file-tree{ :id => grouper.student_id }
 
   #deploy-link-area
     #deploy-link
@@ -48,9 +57,6 @@
       - if @homework
         = link_to image_tag('zip.png'),
           "#{@task.id}/#{@user.student_id}/#{@homework.file_pack}.zip"
-
-
-
 
   #source-code
     %pre

@@ -7,8 +7,8 @@ class Homework < ActiveRecord::Base
   has_many   :groupscores
   has_one    :finalscore
  
-  before_save   :get_file_data
-  after_save    :write_file
+  before_create   :get_file_data
+  after_create    :write_file
   after_destroy :delete_homework_file
 
   # Before save the file data into the database, set the path and keep
