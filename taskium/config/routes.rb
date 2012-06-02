@@ -14,6 +14,7 @@ Taskium::Application.routes.draw do
     get 'manager_evaluation' => :manager_evaluation
     get 'teacher_evaluation' => :teacher_evaluation
     get 'calculate_group_rank' => :calculate_group_rank 
+    get 'calculate_class_rank' => :calculate_class_rank 
   end
 
   resources :homeworks

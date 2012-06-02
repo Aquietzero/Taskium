@@ -17,6 +17,8 @@
         %strong Group Rank
       %td.table-middle-cess
         %strong Final Score
+      %td.table-middle-cess
+        %strong Final Rank 
 
     - group.users.each do |user|
       %tr.table-line
@@ -36,6 +38,11 @@
         %td.table-middle-cell
           - if get_homework(user, @task) and get_homework(user, @task).finalscore
             = get_homework(user, @task).finalscore.score
-         
+        %td.table-middle-cell
+          - if get_homework(user, @task)
+            = get_homework(user, @task).final_rank
 
-  #evaluate-form
+#evaluate-form
+ 
+.submit-button
+  = link_to 'Put out evaluation result', calculate_class_rank_path(:task_id => @task.id)
