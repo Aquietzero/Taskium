@@ -1,7 +1,10 @@
 .task
   .task-title
     %h2= @task.name
-    %span.deadline= "[Deadline: #{@task.due.strftime('%Y %B, %d 00:00')}]"
+    - if @task.due > Time.now
+      %span.deadline= "[Deadline: #{@task.due.strftime('%Y %B, %d 00:00')}]"
+    - else
+      %span.deadline [Dued]
 
     - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
       .task-operations

@@ -60,6 +60,8 @@ class ScoreAndRankingController < ApplicationController
       prev_score = homework.finalscore.score
     end
 
+    @task.update_attribute(:released, true)
+
     redirect_to teacher_evaluation_path(:task_id => @task.id)
   end
 

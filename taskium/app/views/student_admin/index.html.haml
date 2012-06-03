@@ -6,7 +6,7 @@
   %tr.table-head
     %th Task
     %th Due date
-    %th Final Score
+    %th Score
     %th
     %th
 
@@ -19,8 +19,9 @@
         - if task.due < Time.now
           %span.dued Dued
       %td.task-score
-        - if get_final_score(@user, task)
+        - if get_final_score(@user, task) and task.released
           = get_final_score(@user, task)
+          = get_final_rank(@user, task)
       %td.task-score= link_to image_tag('camera.png'),
         homework_view_and_score_path(:user => @user, :task => task)
       %td.hand-in

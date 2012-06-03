@@ -28,6 +28,12 @@
           = link_to 'register', register_url
 
     #sidebar
+      .sub-menu
+        %strong.menu-title ADMIN
+        %ul.menu-items
+          %li.menu-item= link_to 'Home', student_admin_url
+          %li.menu-item= link_to 'Profile', @user
+
       .sub-menu 
         %strong.menu-title GROUP
         %ul.menu-items

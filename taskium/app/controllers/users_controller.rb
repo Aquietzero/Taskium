@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   layout 'session_layout', :only => [:new, :create]
-  layout 'admin_layout', :only => [:index, :show, :edit]
+  layout :set_layout, :only => [:index, :show, :edit]
   skip_before_filter :authorize, :only => [:new, :create]
 
   # GET /users

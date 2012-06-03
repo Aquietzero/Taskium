@@ -7,7 +7,9 @@
       = comment.content
 
     - if @user
-      %p.add-reply= link_to 'Add a Reply', new_comment_comment_path(comment)
+      %p.add-reply
+        = image_tag 'blog.png'
+        = link_to 'Add a Reply', new_comment_comment_path(comment)
   - unless comment.comments.empty?
     %ul.comment-list
       = render :partial => 'comments/comment', :collection => comment.comments
