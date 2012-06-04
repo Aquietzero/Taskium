@@ -23,16 +23,20 @@ class ApplicationController < ActionController::Base
   end
 
   def set_layout
-    user = User.find(session[:user_id])
-    if user 
-      if user.role == 'TEACHER' or user.role == 'ADMIN'
-        'admin_layout'
-      elsif user.role == 'STUDENT' or user.role == 'MANAGER'
-        'student_layout'
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      if user 
+        if user.role == 'TEACHER' or user.role == 'ADMIN'
+          'admin_layout'
+        elsif user.role == 'STUDENT' or user.role == 'MANAGER'
+          'student_layout'
+        end 
+      else
+        'application' 
       end 
     else
       'application' 
-    end 
+    end
   end
 
 end
