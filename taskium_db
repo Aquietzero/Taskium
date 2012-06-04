@@ -1,0 +1,176 @@
+BEGIN TRANSACTION;
+CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO categories VALUES(1,'Story','2012-05-18 02:16:55.583800','2012-05-18 02:16:55.583800');
+INSERT INTO categories VALUES(2,'Task','2012-05-18 02:17:08.575143','2012-05-18 02:17:08.575143');
+INSERT INTO categories VALUES(3,'Test','2012-05-18 02:17:21.429331','2012-05-18 02:17:21.429331');
+CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "commentable_id" integer, "commentable_type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO comments VALUES(10,'This is a test',1,1,'Post','2012-05-19 03:18:34.099985','2012-05-19 03:18:34.099985');
+INSERT INTO comments VALUES(11,'这是对“This is a test”的回复',1,10,'Comment','2012-05-19 03:25:26.880216','2012-05-19 03:25:26.880216');
+INSERT INTO comments VALUES(12,'我来啦～～',2,11,'Comment','2012-05-19 03:26:50.680824','2012-05-19 03:26:50.680824');
+INSERT INTO comments VALUES(13,'这是一个外层的测试',2,10,'Comment','2012-05-19 03:27:25.636344','2012-05-19 03:27:25.636344');
+INSERT INTO comments VALUES(14,'You are a student.',2,3,'Post','2012-05-19 15:31:10.666040','2012-05-19 15:31:10.666040');
+INSERT INTO comments VALUES(15,'This is a test',4,14,'Comment','2012-05-20 03:35:06.271381','2012-05-20 03:35:06.271381');
+INSERT INTO comments VALUES(16,'This is the comment for the first task.',5,1,'Task','2012-05-20 07:09:29.253194','2012-05-20 07:09:29.253194');
+INSERT INTO comments VALUES(17,'This is the first comment for the first comment of the first task.',5,16,'Comment','2012-05-20 07:10:09.283819','2012-05-20 07:10:09.283819');
+INSERT INTO comments VALUES(18,'I am saying something',5,17,'Comment','2012-05-20 07:21:51.466745','2012-05-20 07:21:51.466745');
+INSERT INTO comments VALUES(19,'Is so much nested above...',5,1,'Task','2012-05-20 07:22:13.112397','2012-05-20 07:22:13.112397');
+INSERT INTO comments VALUES(20,'This is so fantastic',7,1,'Post','2012-05-27 09:22:46.937631','2012-05-27 09:22:46.937631');
+INSERT INTO comments VALUES(21,'这是一个hello world的评论',5,4,'Post','2012-05-28 17:00:45.012696','2012-05-28 17:00:45.012696');
+INSERT INTO comments VALUES(22,'This is the final project of the term',5,6,'Task','2012-05-29 04:33:56.734638','2012-05-29 04:33:56.734638');
+INSERT INTO comments VALUES(23,'this is a test',4,6,'Task','2012-05-30 11:27:00.641060','2012-05-30 11:27:00.641060');
+CREATE TABLE "finalscores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "score" integer, "explanation" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "homework_id" integer);
+INSERT INTO finalscores VALUES(1,80,'This is a teacher''s score','2012-06-01 08:50:34.758914','2012-06-01 08:50:34.758914',16);
+INSERT INTO finalscores VALUES(2,90,'NO REASON!','2012-06-01 09:06:51.148987','2012-06-01 09:06:51.148987',15);
+INSERT INTO finalscores VALUES(3,100,'So perfect!!!','2012-06-01 09:12:57.936259','2012-06-01 09:12:57.936259',18);
+INSERT INTO finalscores VALUES(4,85,'我是老师，你有办法吗？！','2012-06-02 06:44:53.990990','2012-06-02 06:44:53.990990',14);
+INSERT INTO finalscores VALUES(5,100,'Fantastic Job!','2012-06-02 06:53:24.922025','2012-06-02 06:53:24.922025',13);
+CREATE TABLE "group_due_dates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "due_date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO group_due_dates VALUES(1,'2012-06-20 14:10:00.000000','2012-05-26 03:11:37.950701','2012-06-04 15:25:49.907213');
+CREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO groups VALUES(1,'Admins','2012-05-19 14:54:16.920856','2012-05-19 14:54:16.920856');
+INSERT INTO groups VALUES(9,'Test_Group','2012-05-20 02:36:57.636097','2012-05-20 02:36:57.636097');
+INSERT INTO groups VALUES(10,'GOD_TEST','2012-06-01 06:55:50.413888','2012-06-01 06:55:50.413888');
+INSERT INTO groups VALUES(11,'Baby Group','2012-06-02 06:52:39.961301','2012-06-02 06:52:39.961301');
+INSERT INTO groups VALUES(12,'hehe','2012-06-04 15:36:45.371676','2012-06-04 15:36:45.371676');
+CREATE TABLE "groupscores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "score" integer, "explanation" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "homework_id" integer);
+INSERT INTO groupscores VALUES(10,95,'you guess','2012-05-24 10:17:41.276286','2012-05-24 10:17:41.276286',4,21);
+INSERT INTO groupscores VALUES(11,90,'there is no reason','2012-05-24 11:32:43.509353','2012-05-24 11:32:43.509353',7,19);
+INSERT INTO groupscores VALUES(13,98,'There is no reason','2012-05-24 11:43:50.517785','2012-05-24 11:43:50.517785',3,21);
+INSERT INTO groupscores VALUES(14,90,'this is a test','2012-05-24 11:50:53.162222','2012-05-24 11:50:53.162222',7,19);
+INSERT INTO groupscores VALUES(15,1000,'perfect','2012-05-29 12:42:54.310562','2012-05-29 12:42:54.310562',3,19);
+INSERT INTO groupscores VALUES(16,90,'There is no reason','2012-06-01 05:45:37.986438','2012-06-01 05:45:37.986438',4,14);
+INSERT INTO groupscores VALUES(17,95,'There is some reasons, but I don''t want to say.','2012-06-01 05:46:59.360089','2012-06-01 05:46:59.360089',3,14);
+INSERT INTO groupscores VALUES(18,80,'I don''t really know why I gave you this mark...','2012-06-01 05:47:20.844001','2012-06-01 05:47:20.844001',3,15);
+INSERT INTO groupscores VALUES(19,70,'there is no reason...','2012-06-01 06:10:02.101507','2012-06-01 06:10:02.101507',4,16);
+CREATE TABLE "homeworks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task_id" integer, "user_id" integer, "group_rank" integer, "final_rank" integer, "final_score" integer, "url" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "file_pack" varchar(255));
+INSERT INTO homeworks VALUES(5,6,7,NULL,NULL,NULL,'09388327/index.html','2012-05-30 10:53:20.021773','2012-05-30 10:53:20.021773',09388327);
+INSERT INTO homeworks VALUES(7,6,4,NULL,NULL,NULL,'index/index.html','2012-05-30 11:09:15.870738','2012-05-30 11:09:15.870738','index');
+INSERT INTO homeworks VALUES(13,5,7,NULL,1,NULL,'09388327/index.html','2012-05-30 13:20:33.173224','2012-06-02 07:03:32.706708',09388327);
+INSERT INTO homeworks VALUES(14,5,6,1,3,NULL,'index/index.html','2012-05-30 14:43:45.990464','2012-06-02 07:03:32.948465','index');
+INSERT INTO homeworks VALUES(15,5,4,2,2,NULL,'09388327/index.html','2012-06-01 05:38:30.792071','2012-06-02 07:03:32.826507',09388327);
+INSERT INTO homeworks VALUES(16,5,3,3,4,NULL,'09388327/index.html','2012-06-01 06:09:23.031619','2012-06-02 07:03:33.060071',09388327);
+INSERT INTO homeworks VALUES(18,5,9,1,1,NULL,'09388327/index.html','2012-06-01 06:57:40.032828','2012-06-02 06:58:11.481494',09388327);
+CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "user_id" integer, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO posts VALUES(1,'Mulholland Drive','Bonsoir, tout le monde. Je vais vous recommander un superbe film «Mulholland Drive» par le réalisateur très connu David Lynch. Je l''ai vu pour trois fois mais je ne l''ennui pas parce que son plot passionnant. Le film est constitué de plusieurs parties est il n''est pas facile pour vous à trouver les relations parmi pour la première fois.  Si vous ne le comprenez pas, je vous recommande le regardez pour la deuxième fois. Vous ne regrettera jamais.
+
+Je ne vais pas discuter la signification derrière le plot. C''est parce que je crois que vous aurez plus impressions si vous pouvez trouver un moyen à l''expliquer. Et maintenant, je préfère vous raconter cette histoire effrayée et fantastique.',1,1,'2012-05-17 16:53:46.381386','2012-05-18 03:02:56.581495');
+INSERT INTO posts VALUES(2,'L''accident en Molholland Drive','Il était un soir tranquille, noir et noir. Une petite voiture roulait dans la route Molholland Drive. Où irait il? On ne savait pas... Bienvenu à notre première héroïne Rita, qui était dans cette voiture. Elle était un peu nerveuse mais personne ne savait pourquoi.
+
+Tout à coup, le chauffeur a tiré un pistolet et a demandé à Rita de descendre la voiture. Rita était très effrayée. A ce moment-là, un accident s''est passé. Quelques voitures, qui avaient roulé avec une grande vitesse en Molholland Drive, l''ont heurté.',1,3,'2012-05-18 02:34:32.340751','2012-05-29 06:10:23.157230');
+INSERT INTO posts VALUES(3,'hello','HI，everybody. I am wuyao.',3,3,'2012-05-19 15:28:04.234449','2012-05-19 15:28:04.234449');
+INSERT INTO posts VALUES(4,'Hello World','Hi, everybody. I am christine!!!',2,3,'2012-05-19 15:30:32.674215','2012-05-19 15:30:32.674215');
+INSERT INTO posts VALUES(6,'La héroïne ','Directeur Adam Kesher a été en train d''avoir une réunion pour choisir la héroïne de son nouveau film. Mais il n''a pas eu le droit de choisir la héroïne parce qu''elle a été choisi par les autres directeurs. Camilla Rhodes, c''était la fille qui a été choisie. Adam était tellement en colère. Pourquoi le directeur n''a pas pu choisir la héroïne pour son propre film?! ',1,1,'2012-05-20 01:35:07.943365','2012-05-29 06:10:53.936536');
+INSERT INTO posts VALUES(7,'I am so dull these days','    自动部署：学生上传作业，MyHomework根据作业的要求，检查提交制品的完整性；然后，将完整的Web代码（PHP、CSS、HTML、JavaScript和图片资源等等......）部署到运行中的服务器上相应的位置。最后我们可以通过一个URL来访问学生作业。
+    作业：作为学生，对于作业应该有10年以上的认识和了解了吧？我们这里"作业"概念的内涵，当然需要你根据需求来分析。其实，这个术语和名词解释和你的分析设计是高度相关的，这本身就是本次project的一部分，恕我不能代劳。',5,3,'2012-05-29 04:45:25.538597','2012-05-29 04:45:25.538597');
+INSERT INTO posts VALUES(8,'新的一天来临了','今天我去上学的时候碰到了我多年以前的战友...
+然后我们聊了很久很久，虽然话题都是以前的战事，但是...
+不知道为什么...
+我...',7,1,'2012-05-29 13:19:44.378905','2012-05-29 13:19:44.378905');
+CREATE TABLE "posts_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "tag_id" integer);
+INSERT INTO posts_tags VALUES(1,1,1);
+INSERT INTO posts_tags VALUES(2,1,2);
+INSERT INTO posts_tags VALUES(8,3,2);
+INSERT INTO posts_tags VALUES(9,4,1);
+INSERT INTO posts_tags VALUES(10,4,3);
+INSERT INTO posts_tags VALUES(13,7,2);
+INSERT INTO posts_tags VALUES(16,6,1);
+INSERT INTO posts_tags VALUES(17,6,3);
+INSERT INTO posts_tags VALUES(18,2,2);
+INSERT INTO posts_tags VALUES(19,2,3);
+INSERT INTO posts_tags VALUES(20,8,1);
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+INSERT INTO schema_migrations VALUES(20120517085743);
+INSERT INTO schema_migrations VALUES(20120517155045);
+INSERT INTO schema_migrations VALUES(20120517155102);
+INSERT INTO schema_migrations VALUES(20120517155214);
+INSERT INTO schema_migrations VALUES(20120517155844);
+INSERT INTO schema_migrations VALUES(20120517160531);
+INSERT INTO schema_migrations VALUES(20120518045816);
+INSERT INTO schema_migrations VALUES(20120518060147);
+INSERT INTO schema_migrations VALUES(20120519143156);
+INSERT INTO schema_migrations VALUES(20120519143242);
+INSERT INTO schema_migrations VALUES(20120520064857);
+INSERT INTO schema_migrations VALUES(20120520073325);
+INSERT INTO schema_migrations VALUES(20120521093108);
+INSERT INTO schema_migrations VALUES(20120521102957);
+INSERT INTO schema_migrations VALUES(20120522015947);
+INSERT INTO schema_migrations VALUES(20120522020009);
+INSERT INTO schema_migrations VALUES(20120522020320);
+INSERT INTO schema_migrations VALUES(20120522020842);
+INSERT INTO schema_migrations VALUES(20120522021028);
+INSERT INTO schema_migrations VALUES(20120522022508);
+INSERT INTO schema_migrations VALUES(20120526030958);
+INSERT INTO schema_migrations VALUES(20120530053637);
+INSERT INTO schema_migrations VALUES(20120530060731);
+INSERT INTO schema_migrations VALUES(20120530070103);
+INSERT INTO schema_migrations VALUES(20120530070154);
+INSERT INTO schema_migrations VALUES(20120602070925);
+CREATE TABLE sqlite_sequence(name,seq);
+INSERT INTO sqlite_sequence VALUES('users',9);
+INSERT INTO sqlite_sequence VALUES('posts',10);
+INSERT INTO sqlite_sequence VALUES('categories',3);
+INSERT INTO sqlite_sequence VALUES('tags',3);
+INSERT INTO sqlite_sequence VALUES('posts_tags',22);
+INSERT INTO sqlite_sequence VALUES('comments',23);
+INSERT INTO sqlite_sequence VALUES('groups',12);
+INSERT INTO sqlite_sequence VALUES('tasks',7);
+INSERT INTO sqlite_sequence VALUES('groupscores',19);
+INSERT INTO sqlite_sequence VALUES('group_due_dates',1);
+INSERT INTO sqlite_sequence VALUES('homeworks',18);
+INSERT INTO sqlite_sequence VALUES('finalscores',5);
+CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO tags VALUES(1,'c++','2012-05-18 03:34:50.266679','2012-05-18 03:34:50.266679');
+INSERT INTO tags VALUES(2,'javascript','2012-05-18 03:35:01.727003','2012-05-18 03:35:01.727003');
+INSERT INTO tags VALUES(3,'ruby','2012-05-18 03:35:12.361444','2012-05-18 03:35:12.361444');
+CREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "requirement" text, "due" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "released" boolean);
+INSERT INTO tasks VALUES(1,'The first task of the term','In this task, you have to meet the following requirements.','2012-05-25 07:03:00.000000','2012-05-20 07:04:26.352347','2012-05-20 07:04:26.352347',NULL);
+INSERT INTO tasks VALUES(3,'This is a dued task.','This task has been already dued. Please check your score in the admin page.','2012-03-21 03:16:00.000000','2012-05-21 03:16:35.472675','2012-05-21 03:16:35.472675',NULL);
+INSERT INTO tasks VALUES(4,'This is also a dued task','And this task does not have any requirements!!!','2012-04-21 03:17:00.000000','2012-05-21 03:17:28.247915','2012-05-21 03:17:28.247915',NULL);
+INSERT INTO tasks VALUES(5,'Dir Test','Blah, Blah, Blah, Blah, Blah, Blah...','2012-05-21 03:59:00.000000','2012-05-21 04:01:20.377184','2012-06-02 07:10:40.687722','t');
+INSERT INTO tasks VALUES(6,'Final Project','简介
+
+MyHomework 是一个Web应用，其目的是满足Web课程的作业提交、评审和评分工作需要。同学们按照小组提交最后的课程设计制品，个人分数依据小组制品最后的分数和个人的贡献而定。下面核心需求的部分所有小组都必须完成，扩展需求部分可选，同时亦可自行实现其它功能。
+核心需求
+
+    角色: 学生，TA，老师。
+    访问管理：只有选定了本课程的学生、本课程的TA和老师才能够访问使用本系统，成为本系统的用户。
+    用户管理: 只有TA和老师能够添加和删除用户。
+    分组：
+        任何学生的都可以创建分组，创始人自动加入该组。
+        学生可以自行加入和退出任何小组，每个学生只能是一个小组的成员。
+        每个小组都有一个组长。
+        任何小组的组员为空时，将自动删除。
+        TA和老师可以锁定分组功能，功能锁定后，任何用户都无法创建小组，也无法离开和加入小组。
+    发布作业：TA和老师可以发布作业，也可以修改一个已发布但是尚未截止的作业。
+    提交作业：学生可以提交作业，提交后的作业可以：
+        访问源码：同组成员可以下载作业的源代码，方便评审。TA和老师可以下载所有作业的源代码。
+        访问应用: 所有作业将被本系统自动部署为Web应用，这些应用能够为所有用户访问。
+        多次提交：学生可以多次提交作业，系统将保留最新的版本。
+    提交小组评审结果：每个小组的组长可以提交本小组的组内评审结果，给出每个成员组内排名。
+    deadline：TA和老师可以设定/修改作业的截止时间，截止时间到达后，任何学生都将无法提交作业和小组评审结果。
+    作业评分: TA和老师可以发布作业评分结果。
+    我的作业：学生登陆系统后，首页将看到自己所有的作业列表，包括各次分数、排名信息和源码与部署应用的链接。
+
+扩展需求
+
+    部署截图：作业提交后，自动抓取浏览器访问该Web应用的截图。将其作为我的作业中相应作业的图标。
+    导出作业: 学生可以导出自己所有的作业和小组评审结果与分数。
+    在线评审:
+        小组成员可以在线评审队友的作业，给出/修改名次和评审意见。
+        小组成员可见所有队友的作业评审结果，包括所有对该队友的评审意见，和最后的排名。
+    佳作赏析: TA或老师发布评分结果后，排名前三的作品将成为佳作列表在首页供大家赏析（下载源码和访问应用）。
+    Execl导出：将所有同学历次作业的信息导出到excel文件。
+','2012-09-29 04:32:00.000000','2012-05-29 04:33:26.993464','2012-05-29 04:33:26.993464',NULL);
+INSERT INTO tasks VALUES(7,'semeter project','aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdddddddddddddddddddddfffffffffffffffffff','2012-06-04 14:53:00.000000','2012-06-04 14:54:35.406587','2012-06-04 14:54:35.406587',NULL);
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "student_id" varchar(255), "email" varchar(255), "website" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" varchar(255), "group_id" integer);
+INSERT INTO users VALUES(1,'afczero','cdd7bebc30a87367ea942f6f2ce151993605874035b81211ec3caccdcdcc8829',-6155063480.8814298352672217,09388327,'zhaoyunhaosss@gmail.com','http://www.nullspace.info','2012-05-17 09:30:32.328144','2012-05-19 16:58:35.278375','MANAGER',1);
+INSERT INTO users VALUES(2,'christine','35112bed4cf53d3133b379a9aba35b9d298528f4575d51b8874ec95d6b140a5a',917529000.437137863340325,09388347,'','','2012-05-19 03:26:22.311575','2012-05-19 14:57:23.193445','ADMIN',1);
+INSERT INTO users VALUES(3,'wuyao','392aaecc16636cce3f1b9c63b0d942c444ba2acde8d04bdc864fbc422878b49d',-6170742180.7049493427709846,09388302,'','','2012-05-19 15:24:13.050548','2012-05-22 02:16:40.990640','STUDENT',9);
+INSERT INTO users VALUES(4,'yuequn','b26de6bef8c9fbdc6eb0163251f6c4fdf5338b11f8fb0d7db607b2497e779cf8',871001100.33497661271713075,09388325,'','','2012-05-19 17:13:22.035148','2012-05-20 02:36:57.637702','MANAGER',9);
+INSERT INTO users VALUES(5,'zero','dbd869e8365d20b92ac75985517d9f84e20862ff3f2cb2723c687523dc58a2df',946511100.221946267573638,09388947,'zhaoyunhaosss@gmail.com','http://www.nullspace.info','2012-05-20 06:58:16.495678','2012-05-20 07:03:36.081146','TEACHER',1);
+INSERT INTO users VALUES(6,'hejincheng','31209db9797eaefec78cb664fea155b7cf56e9f875b3c5da30378b334a008881',936327500.5079920741861478,09388299,'','','2012-05-21 16:23:03.380129','2012-06-04 15:36:45.372968','MANAGER',12);
+INSERT INTO users VALUES(7,'baby','bd78e5b5bf09d38a29ac95354fdee9a4b633d8bd797d4555a322ac4c9812e3c4',950701300.13045028708075668,09388123,'','','2012-05-22 02:17:14.174512','2012-06-02 06:52:39.962936','MANAGER',11);
+INSERT INTO users VALUES(9,'test','a202894c9e3f2d3ce2038f98238ba2eb53c216720ef2284b6cff25f19f4106d9',917561600.35963752779292546,09123456,'','','2012-06-01 06:55:24.274033','2012-06-01 06:55:50.415490','MANAGER',10);
+CREATE INDEX "index_comments_on_commentable_id_and_commentable_type" ON "comments" ("commentable_id", "commentable_type");
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+COMMIT;
