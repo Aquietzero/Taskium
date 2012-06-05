@@ -1,7 +1,7 @@
 - if flash[:notice]
   %p= flash[:notice]
  
-%h1 Tasks on due
+%h1 Tasks
 %table.normal-table
   %tr.table-head
     %th Task
@@ -30,6 +30,17 @@
       %td
         - if @user.role == 'MANAGER' and task.due > Time.now
           = link_to image_tag('notepad.png'), manager_evaluation_path(:task_id => task.id)
+
+      - if task.released
+        - task.homeworks.order(:final_rank).limit(3).each do |good_homework|
+          %tr
+            %td= good_homework.user.name
+            %td= good_homework.final_rank
+            %td= link_to image_tag('way.png'), 
+              "#{task.id}/#{good_homework.user.student_id}/#{good_homework.url}"
+            %td= link_to image_tag('zip.png'), 
+              "#{task.id}/#{good_homework.user.student_id}/#{good_homework.file_pack}.zip"
+            %td
 
 #homework-handin
 

@@ -4,7 +4,7 @@
       = comment.created_at.strftime('%Y-%m-%d %H:%M:%S')
       by #{comment.user.name}
     .comment-content
-      = comment.content
+      = sanitize(markdown(comment.content))
 
     - if @user
       %p.add-reply
