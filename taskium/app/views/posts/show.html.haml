@@ -25,12 +25,14 @@
       = tag.name 
   .posts-comments
     - if @user
-      %span.add-comment= link_to 'Add a comment', new_post_comment_path(@post)
+      %span.add-comment= link_to 'Add a comment', new_post_comment_path(@post), :remote => true
       |
     - if @post.comments.length > 0
       %span.comments-control= pluralize(@post.comments.length, 'Comment')
     - if @post.comments.length == 0
       %span No comments
+
+    #add-post-reply.comment-form
 
     %ul.posts-comments-list-in-show
       = render :partial => 'comments/comment', :collection => @post.comments

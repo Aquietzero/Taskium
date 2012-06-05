@@ -1,0 +1,9 @@
+$('.comment-form').empty();
+
+<% if @parent.is_a? Post or @parent.is_a? Task %>
+  $('#add-post-reply').html('<%= j render 'comments/form' %>');
+<% end %>
+
+<% if @parent.is_a? Comment %>
+  $('#add-comment-reply-<%= @parent.id %>').html('<%= j render 'comments/form' %>');
+<% end %>

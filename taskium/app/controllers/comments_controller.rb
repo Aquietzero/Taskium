@@ -5,10 +5,12 @@ class CommentsController < ApplicationController
 
   def new 
     @comment = @@parent.comments.new
+    @parent = @@parent
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @comment }
+      format.js
+      # format.json { render json: @comment }
     end
   end
 
