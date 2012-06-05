@@ -22,12 +22,11 @@
               =link_to 'delete', task, :confirm => 'Are you sure?', :method => :delete
 
       .task-updated= task.updated_at.strftime('%A %B, %d')
-      .task-requirement= task.requirement
+      .task-requirement= sanitize(markdown(truncate(task.requirement, :length => 100)))
 
       .tasks-comments
-        - if @user
-          %span.add-comment= link_to 'Add a comment', new_task_comment_path(task)
-          |
+        %span= link_to 'View more', task
+        |
         - if task.comments.length > 0
           %span.comments-control= pluralize(task.comments.length, 'Comment')
         - if task.comments.length == 0

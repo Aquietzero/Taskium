@@ -16,7 +16,7 @@
               =link_to 'delete', post, :confirm => 'Are you sure?', :method => :delete
 
       .post-updated= "on #{post.updated_at.strftime('%A %B, %d')}"
-      .post-content= truncate(post.content, :length => 100)
+      .post-content= sanitize(markdown(truncate(post.content, :length => 100)))
       .post-category
         %span.sub-title Category: 
         = post.category.name
