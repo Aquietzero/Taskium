@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="2" x="22" y="2" width="715" height="607" text="Browser&#xA;http://..." measuredWidth="715" measuredHeight="607"/>
+  <widgets xsi:type="model:Rectangle" id="11" x="22" y="54" width="715" height="75" measuredWidth="715" measuredHeight="75">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="12" x="32" y="63" text="Taskium" measuredWidth="163" measuredHeight="57">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="13" x="558" y="80" text="Register, Admin, Log Out" measuredWidth="169" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="49" height="23" text="Register"/>
+    <items x="67" y="0" width="37" height="23" text="Admin"/>
+    <items x="122" y="0" width="46" height="23" text="Log Out"/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="14" x="204" y="152" width="493" height="98" text="Lastest News" measuredWidth="493" measuredHeight="98">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="15" x="204" y="264" width="493" height="329" text="Homework" measuredWidth="493" measuredHeight="329">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Group" id="17" x="48" y="152" width="147" height="441" text="Function choices" measuredWidth="147" measuredHeight="441">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="18" x="204" y="281" width="493" height="88" measuredWidth="493" measuredHeight="88">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="19" x="214" y="300" width="267" height="49" text="Homework 1" measuredWidth="267" measuredHeight="49">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="20" x="491" y="313" text="View, Edit, Release,  Delete" measuredWidth="196" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="29" height="23" text="View"/>
+    <items x="47" y="0" width="24" height="23" text="Edit"/>
+    <items x="89" y="0" width="45" height="23" text="Release"/>
+    <items x="152" y="0" width="43" height="23" text=" Delete"/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="22" x="204" y="368" width="493" height="88" measuredWidth="493" measuredHeight="88">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="23" x="214" y="387" width="267" height="49" text="Homework 2" measuredWidth="267" measuredHeight="49">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="24" x="491" y="400" text="View, Edit, Release,  Delete" measuredWidth="196" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="29" height="23" text="View"/>
+    <items x="47" y="0" width="24" height="23" text="Edit"/>
+    <items x="89" y="0" width="45" height="23" text="Release"/>
+    <items x="152" y="0" width="43" height="23" text=" Delete"/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="25" x="112" y="189" text="Edit Profile" measuredWidth="65" measuredHeight="23" link="EditProfile_TA&amp;&amp;Teacher.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="26" x="124" y="227" text="Add User" measuredWidth="53" measuredHeight="23" link="AddUser_TA&amp;&amp;Teacher.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="27" x="75" y="271" text="Create Homework" measuredWidth="102" measuredHeight="23" link="CreateHomework.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="28" x="124" y="334" text="Evaluate" measuredWidth="50" measuredHeight="23" link="EvaluateHomework_TA&amp;&amp;Teacher.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="29" x="93" y="373" text="Group Student" measuredWidth="84" measuredHeight="23" link="Group_TA&amp;&amp;Teacher.screen">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="30" x="112" y="454" text="Lock Group" measuredWidth="65" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="31" x="75" y="413" text="Release Evaluation" measuredWidth="106" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="32" x="70" y="300" text="Updata Homework" measuredWidth="104" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="32" y="12" width="715" height="583" text="Browser&#xA;http://..." measuredWidth="715" measuredHeight="583"/>
+  <widgets xsi:type="model:Group" id="2" x="136" y="160" width="497" height="369" text="Edit Profile" measuredWidth="497" measuredHeight="369">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="3" x="232" y="192" text="Name:" measuredWidth="40" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="4" x="194" y="224" text="StudentNum:" measuredWidth="78" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="5" x="252" y="256" text="ID:" measuredWidth="20" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="6" x="213" y="296" text="password:" measuredWidth="59" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="7" x="166" y="342" text="Confirm password:" measuredWidth="106" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="8" x="232" y="396" text="E-mail:" measuredWidth="41" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="11" x="296" y="192" width="171" text="Cannot change" measuredWidth="171" measuredHeight="23" background="#000000">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="12" x="296" y="224" width="170" text="Cannot change" measuredWidth="170" measuredHeight="23" background="#000000">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="13" x="296" y="256" width="170" text="log in id" measuredWidth="170" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="14" x="296" y="296" width="170" text="password" measuredWidth="170" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="15" x="296" y="342" width="170" text="confirm password" measuredWidth="170" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="16" x="296" y="396" width="170" text="E-mail" measuredWidth="170" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="19" x="296" y="418" text="show validation message" measuredWidth="139" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="20" x="296" y="456" width="73" height="33" text="Submit" measuredWidth="73" measuredHeight="33">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="21" x="296" y="364" text="show validation message" measuredWidth="139" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="22" x="393" y="456" width="74" height="33" text="Cancle" measuredWidth="74" measuredHeight="33">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="23" x="32" y="64" width="715" height="75" measuredWidth="715" measuredHeight="75">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="24" x="42" y="73" text="Taskium" measuredWidth="163" measuredHeight="57">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="25" x="568" y="90" text="Register, Admin, Log Out" measuredWidth="169" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="49" height="23" text="Register"/>
+    <items x="67" y="0" width="37" height="23" text="Admin"/>
+    <items x="122" y="0" width="46" height="23" text="Log Out"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
