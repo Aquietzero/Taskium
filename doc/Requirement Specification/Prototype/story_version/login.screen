@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="22" y="2" width="715" height="583" text="Browser&#xA;http://..." measuredWidth="715" measuredHeight="583"/>
+  <widgets xsi:type="model:Group" id="2" x="216" y="176" width="337" height="217" text="Sign In" measuredWidth="337" measuredHeight="217" background="#eeeeee">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="6" x="321" y="232" width="144" text="username" measuredWidth="144" measuredHeight="23" background="#cccccc">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="7" x="321" y="270" width="144" text="password" measuredWidth="144" measuredHeight="23" background="#cccccc">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="8" x="384" y="312" width="81" height="41" text="Sign In" measuredWidth="81" measuredHeight="41">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="10" x="248" y="232" text="User Name:" measuredWidth="68" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="11" x="257" y="270" text="Password:" measuredWidth="59" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="20" x="22" y="54" width="715" height="75" measuredWidth="715" measuredHeight="75">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="21" x="32" y="63" text="Taskium" measuredWidth="163" measuredHeight="57">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:Link" id="22" x="664" y="80" text="Register" measuredWidth="50" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

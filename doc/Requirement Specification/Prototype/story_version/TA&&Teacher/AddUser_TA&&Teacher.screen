@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" x="22" y="2" width="715" height="583" text="Browser&#xA;http://..." measuredWidth="715" measuredHeight="583"/>
+  <widgets xsi:type="model:Group" id="2" x="112" y="144" width="529" height="329" text="Add User" measuredWidth="529" measuredHeight="329">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="3" x="244" y="248" text="Name:" measuredWidth="40" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="4" x="184" y="288" text="Student Number:" measuredWidth="100" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="5" x="312" y="248" width="177" text="student name" measuredWidth="177" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="6" x="312" y="288" width="177" text="student number" measuredWidth="177" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="8" x="312" y="344" width="73" height="48" text="Next" measuredWidth="73" measuredHeight="48">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" id="9" x="416" y="345" width="73" height="46" text="Finish" measuredWidth="73" measuredHeight="46">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Rectangle" id="10" x="22" y="54" width="715" height="75" measuredWidth="715" measuredHeight="75">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="11" x="32" y="63" text="Taskium" measuredWidth="163" measuredHeight="57">
+    <font size="43px"/>
+  </widgets>
+  <widgets xsi:type="model:LinkBar" id="12" x="558" y="80" text="Register, Admin, Log Out" measuredWidth="169" measuredHeight="23">
+    <font/>
+    <items x="0" y="0" width="49" height="23" text="Register"/>
+    <items x="67" y="0" width="37" height="23" text="Admin"/>
+    <items x="122" y="0" width="46" height="23" text="Log Out"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="13" x="312" y="310" text="show validation message" measuredWidth="139" measuredHeight="23">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
