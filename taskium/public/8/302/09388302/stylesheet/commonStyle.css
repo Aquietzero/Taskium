@@ -1,0 +1,363 @@
+/* ***************************************************************************
+ *                       全局边距设定                                        *
+ * ***************************************************************************/
+* {padding: 0; margin: 0; border: 0; }
+
+/* ***************************************************************************
+ *                       超链接样式                                          *
+ * ***************************************************************************/
+.navigation a:link    {color: #5F2F1F; text-shadow: 1px 1px 2px #5F2F1F;}
+.navigation a:visited {color: #5F1F4F; text-shadow: 1px 1px 2px #5F1F4F;}
+.navigation a:hover   {color: #5F2F1F; text-shadow: 1px 1px 2px #5F2F1F; font-weight: 600;}
+.navigation a:active  {color: #5F2F1F; text-shadow: 1px 1px 2px #5F2F1F;}
+a {text-decoration: none; }
+
+/* ***************************************************************************
+ *                       背影样式设定                                        *
+ * ***************************************************************************/
+.body1 {
+	min-height: 600px;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image:  url("../images/background-edge-top.png"),
+					   url("../images/background-top.jpg"),
+					   url("../images/background-bottom.jpg"),
+					   url("../images/background.jpg");
+	background-position: left top, left top, right bottom, right 250px;
+	background-repeat: repeat-x, repeat-x, repeat-x, repeat;
+}
+.body2 {
+	min-height: 600px;
+	width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image:  url("../images/background-edge-top.png"),
+					   url("../images/background-top.jpg"),
+					   url("../images/background-bottom.jpg");
+	background-position: left top, left top, right 250px;
+	background-repeat: repeat-x, repeat-x, repeat;
+}
+/* ***************************************************************************
+ *                       导航样式设定                                        *
+ * ***************************************************************************/
+#nav {/* 主导航设定*/
+	width: 100%;
+	margin-top: 10px;
+	height: 0;
+	
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+	text-align: right;
+	font-size: 13pt;
+	font-weight: 900;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+}
+#navigation > li {/* 子导航设定*/
+	display: inline-block;
+	padding-left: 6px;
+	padding-right: 6px;
+	vertical-align: top;
+	text-align: center;
+	width: 90px;
+
+	-webkit-border-image: url("../images/navigation.gif") 20 15 20 15 stretch repeat;
+	-moz-border-image: url("../images/navigation.gif") 20 15 20 15 stretch repeat;
+	-o-border-image: url("../images/navigation.gif") 20 15 20 15 stretch repeat;
+	-ms-border-image: url("../images/navigation.gif") 20 15 20 15 stretch repeat;
+	border-width: 13px 10px;
+}
+#navigation > li > ul > li {/*导航项设定*/
+	list-style-type: none;
+	padding-bottom: 2px;	
+	
+	font-size: 11pt;
+	font-weight: 400;
+	color: #4F2F1F;
+	text-shadow: 1px 1px 2px #4F2F1F;
+}
+
+
+/* ***************************************************************************
+ *                       LOGO样式设定                                        *
+ * ***************************************************************************/
+#logo {
+	margin-top: 30px;
+	width: 100%;
+	height: 0;
+}
+#logo img {/*LOGO图片样式设定*/
+	width: 155px;
+}
+#logoTxt {	display: inline-block; vertical-align: 20px;}
+#logoTxt pre{/*LOGO文本样式设定*/
+	font-family: "华文行楷", "华文隶书", "隶书", serif, Verdana, Tahoma;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+}
+/* ***************************************************************************
+ *                       Main样式设定                                        *
+ * ***************************************************************************/
+ #main{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 180px;
+	width: 90%;
+ }
+.content1 {
+	-webkit-border-image: url("../images/main1.png") 49 49 49 49 stretch  repeat;
+	-moz-border-image: url("../images/main1.png") 49 49 49 49  stretch  repeat;
+	-o-border-image: url("../images/main1.png") 49 49 49 49  stretch  repeat;
+	-ms-border-image: url("../images/main1.png") 49 49 49 49  stretch  repeat;
+	border-width: 50px;
+}
+.content2 {
+	-webkit-border-image: url("../images/main2.png") 55 49 55 49 stretch  repeat;
+	-moz-border-image: url("../images/main2.png") 55 49 55 49 stretch  repeat;
+	-o-border-image: url("../images/main2.png") 55 49 55 49 stretch  repeat;
+	-ms-border-image: url("../images/main2.png") 55 49 55 49 stretch  repeat;
+	border-width: 50px;
+}
+.mainStyle2 {
+	position: absolute;
+	top: 210px;
+	left: 150px;
+	width: 810px;
+	min-height: 600px;
+	padding-left: 20px;
+	padding-right: 20px;
+	-webkit-border-image: url("../images/main2.png") 49 49 49 49 stretch stretch;
+	-moz-border-image: url("../images/main2.png") 49 49 49 49  stretch stretch;
+	-o-border-image: url("../images/main2.png") 49 49 49 49  stretch stretch;
+	-ms-border-image: url("../images/main2.png") 49 49 49 49  stretch stretch;
+	border-width: 50px;
+	z-index: 1;
+}
+/* ***************************************************************************
+ *                      页面主题样式设定                                     *
+ * ***************************************************************************/
+
+/* ***************************************************************************
+ *                      COPYLEFT样式设定                                     *
+ * ***************************************************************************/
+#copyleft {
+	position: absolute;
+	bottom: -55px;
+	right: -50px;
+	font-family: "华文隶书", "隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-style: italic;
+	font-size: 11pt;
+	color: #402010;
+	font-weight: 400;
+	color: #4F2F1F;
+	text-shadow: 1px 1px 2px #402010;
+	text-align: right;
+	margin-right: 50px;
+}
+
+.fontStyle {
+	font-family: "华文行楷", "华文隶书", "隶书", serif, Verdana, Tahoma;
+	font-size: 11pt;
+	font-weight: 200;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+}
+.toHidden{
+	display: none;
+}
+#splitPage_bar {
+	width: 100%;
+	text-align: center;
+	font-family:  "隶书", "华文隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-size: 11pt;
+	font-weight: 200;
+	text-shadow: 1px 1px 2px #402010;
+}
+.forPhoto{
+	position: relative;
+	top: 4%;
+}
+#splitPage_bar *{
+	display: inline;
+}
+
+input#inputPageNum{
+	background: #DDDCFF;
+	border: 1px double #4F1F4F;
+}
+button#submitPageNum{
+	background: #EDDCFF;
+	border: 1px double #4F1F4F;
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-size: 11pt;
+}
+#splitPage_bar input#inputPageNum:hover{color: #FF0000;}
+#splitPage_bar button#submitPageNum:hover{color: #FF0000; background: #AABBCC;}
+#splitPage_bar a:link    {color: #4F2F1F; text-shadow: 1px 1px 2px #4F2F1F;}
+#splitPage_bar a:visited {color: #4F1F4F; text-shadow: 1px 1px 2px #4F1F4F;}
+#splitPage_bar a:hover   {color: #FF0000; text-shadow: 1px 1px 2px #4F2F1F;}
+#splitPage_bar a:active  {color: #4F2F1F; text-shadow: 1px 1px 2px #4F2F1F;}
+
+
+#photoArea {
+	width: 75%;
+	height: 600px;
+	float: right;
+}
+#diapoContainer {
+	position: relative;
+	left: 3%;
+	top: 4%;
+	width: 93%;
+	height: 540px;
+	border: groove 6px #DDD;
+
+	-moz-box-shadow: 0px 0px 70px #555;
+	-webkit-box-shadow: 0px 0px 70px #555;
+	background: #E0DDE0;
+	overflow: hidden;
+ }
+
+ #photoControl {
+	position: relative;
+	left: 5px;
+	top: 50px;
+	width: 25%;
+ }
+
+ #navigation2 > li {/* 子导航设定*/
+	display: block;
+	padding-left: 6px;
+	padding-right: 6px;
+	vertical-align: top;
+	text-align: center;
+	width: 100px;
+
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+
+	-webkit-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-moz-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-o-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-ms-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	border-width: 12px 10px;
+}
+
+#navigation2 > li > p {/*导航项设定*/
+	font-size: 12px;
+	margin: 10px;
+	color: #4F2F1F;
+	text-align: left;
+	text-shadow: 1px 1px 2px #4F2F1F;
+}
+.intro{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.intro > div{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background: #F0F0F0;
+}
+.intro > div > pre {
+	margin-left: 25%;
+	padding-top: 20px;
+
+	font-family:"华文行楷",  "隶书", serif, Verdana, Tahoma;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+}
+#chuanshuo{
+	width: 80%;
+	min-height: 600px;
+	float: right;
+}
+#chuanshuo p {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background: #F0F0F0;
+
+	padding: 20px;
+
+	font-family:"隶书", "华文行楷",  serif, Verdana, Tahoma;
+	font-size: 13pt;
+	font-weight: 300;
+	color: #202010;
+	text-shadow: 1px 1px 1px #202010;
+}
+#navigation3 li {/* 子导航设定*/
+	display: block;
+	padding-left: 6px;
+	padding-right: 6px;
+	vertical-align: top;
+	text-align: center;
+	width: 90px;
+
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+
+	-webkit-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-moz-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-o-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	-ms-border-image: url("../images/navigation2.gif") 20 15 20 15 stretch repeat;
+	border-width: 12px 10px;
+}
+
+#chuanshuoControl {
+	position: relative;
+	left: 5px;
+	top: 50px;
+	width: 25%;
+ }
+#links{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#linksContainer{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background: #F0F0F0;
+	width:94%;
+	padding: 3%;
+}
+#linksContainer tr {
+	font-family:"隶书", "华文行楷",  serif, Verdana, Tahoma;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #402010;
+	text-shadow: 1px 1px 2px #402010;
+}
+#linksContainer tr td{width: 48%; padding-left: 2%;}
+#linksContainer tr td:hover{background: #858585;}
+#linksContainer  tr:nth-of-type(even) {background: #E5E5E5;}
+#linksContainer  tr:nth-of-type(odd) { background:  #D0D0D0;}
+
+.game{
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 400px;
+	padding:50px;
+}
+.gameC{
+	width:700px;
+	margin-left: auto;
+	margin-right: auto;
+}

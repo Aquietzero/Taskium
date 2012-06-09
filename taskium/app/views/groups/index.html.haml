@@ -15,23 +15,24 @@
   - @groups.each do |group|
     %tr.table-line
       %td.clickable= group.name
-      %td= get_manager(group).name
-      %td= get_manager(group).student_id
-      %td= get_manager(group).email
-      %td
-        - if @user.role == 'MANAGER' and @user.group == group
-          = link_to image_tag('writing.png'), edit_group_path(group)
-        - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
-          = link_to image_tag('writing.png'), edit_group_path(group)
-        - if @user.role == 'STUDENT' and not @user.group
-          = link_to image_tag('plus.png'), :controller => 'groups', :action => 'join', :id => group
-      %td
-        - if @user.role == 'MANAGER' and @user.group == group
-          = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
-        - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
-          = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
-        - if @user.role == 'STUDENT' and @user.group and @user.group == group
-          = link_to image_tag('less.png'), :controller => 'groups', :action => 'quit', :id => group
+      - if get_manager(group)
+        %td= get_manager(group).name
+        %td= get_manager(group).student_id
+        %td= get_manager(group).email
+        %td
+          - if @user.role == 'MANAGER' and @user.group == group
+            = link_to image_tag('writing.png'), edit_group_path(group)
+          - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+            = link_to image_tag('writing.png'), edit_group_path(group)
+          - if @user.role == 'STUDENT' and not @user.group
+            = link_to image_tag('plus.png'), :controller => 'groups', :action => 'join', :id => group
+        %td
+          - if @user.role == 'MANAGER' and @user.group == group
+            = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
+          - if @user.role == 'TEACHER' or @user.role == 'ADMIN'
+            = link_to image_tag('trash.png'), group, confirm: 'Are you sure?', method: :delete
+          - if @user.role == 'STUDENT' and @user.group and @user.group == group
+            = link_to image_tag('less.png'), :controller => 'groups', :action => 'quit', :id => group
           
     - group.users.each do |user|
       - if user.role != 'MANAGER'

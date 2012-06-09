@@ -1,0 +1,71 @@
+.imgDC {
+	position: absolute;
+	cursor: pointer;
+	border: #000 solid 1px;
+	filter: alpha(opacity=90);
+	opacity: 0.9;
+	visibility: hidden;
+}
+.spaDC {
+	position: absolute;
+	filter: alpha(opacity=20);
+	opacity: 0.2;
+	background: #000;
+	visibility: hidden;
+}
+.imgsrc {
+	position: absolute;
+	width: 120px;
+	height: 90px;
+	visibility: hidden;
+	margin-left: 7%;
+	margin-right: 7%;
+	margin-top: 7%;
+	margin-bottom: 5%;
+}
+
+#caption {
+	position: absolute;
+	top:0;
+	white-space: nowrap;
+	color: #4F2F1F; 
+	text-shadow: 1px 1px 2px #4F2F1F;
+	width: 100%;
+	left: -10000px;
+	text-align: center;
+	font-size: 16pt;
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+ }
+
+ .spanSlide {
+	position: absolute;
+	background: #E0DDE0;
+	font-size: 1px;
+	overflow: hidden;
+ }
+ .imgSlide {
+	position: absolute;
+	left: 1%;
+	top: 1%;
+	width: 98%;
+	height: 98%;
+	overflow: hidden;
+	-moz-box-shadow: 1px 1px 5px #555;
+	-moz-box-shadow: 6px 6px 5px #555;
+	-moz-box-shadow: 11px 11px 5px #555;
+ }
+ .txtSlide {
+	position: absolute;
+	top: 2%;
+	left: 2px;
+	width:96%;
+	color:#FFF;
+	font-family: "隶书", "华文行楷", serif, Verdana, Tahoma;
+	font-weight: 300;
+	font-size:16pt;
+	letter-spacing:12px;
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	opacity:0.7;
+ }
+

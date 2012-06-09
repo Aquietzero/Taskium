@@ -29,11 +29,5 @@
       .form-row
         %label{:for=>'website'} Website
         = f.url_field :website
-      .form-row
-        %label{:for=>'Group'} Group
-        = select('user', 'group_id', Group.all.collect {|g| [g.name, g.id]}, :include_blank => true)
-      .form-row
-        %label{:for=>'role'} Role
-        = f.text_field :role
       .form-row 
         = f.submit
